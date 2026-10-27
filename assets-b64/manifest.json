@@ -1,0 +1,94 @@
+{
+  "assets": [
+    {
+      "out": "img/bg-fundo-animado.gif",
+      "parts": [
+        "assets-b64/img/bg-fundo-animado.gif.b64.part01",
+        "assets-b64/img/bg-fundo-animado.gif.b64.part02",
+        "assets-b64/img/bg-fundo-animado.gif.b64.part03",
+        "assets-b64/img/bg-fundo-animado.gif.b64.part04",
+        "assets-b64/img/bg-fundo-animado.gif.b64.part05"
+      ],
+      "sha256": "b0c6b10f7680ddc98bb3b272e7026efab00dc4c8aa0ff9df01bc5742983ce499",
+      "bytes": 59388
+    },
+    {
+      "out": "img/foto-consultora-cliente.jpg",
+      "parts": [
+        "assets-b64/img/foto-consultora-cliente.jpg.b64.part01",
+        "assets-b64/img/foto-consultora-cliente.jpg.b64.part02",
+        "assets-b64/img/foto-consultora-cliente.jpg.b64.part03"
+      ],
+      "sha256": "2fd779d1c64a013f334fee2f6078242cdf2bfc74051168932aca00f8acdf120f",
+      "bytes": 32501
+    },
+    {
+      "out": "img/foto-equipe-reuniao.jpg",
+      "parts": [
+        "assets-b64/img/foto-equipe-reuniao.jpg.b64.part01",
+        "assets-b64/img/foto-equipe-reuniao.jpg.b64.part02",
+        "assets-b64/img/foto-equipe-reuniao.jpg.b64.part03",
+        "assets-b64/img/foto-equipe-reuniao.jpg.b64.part04"
+      ],
+      "sha256": "2042a6901c6a6e623a4fef01a7dee9547ccb9cc2204e3cc75f9c70c69fd0656b",
+      "bytes": 41507
+    },
+    {
+      "out": "img/foto-tecnologia.jpg",
+      "parts": [
+        "assets-b64/img/foto-tecnologia.jpg.b64.part01",
+        "assets-b64/img/foto-tecnologia.jpg.b64.part02",
+        "assets-b64/img/foto-tecnologia.jpg.b64.part03"
+      ],
+      "sha256": "6686f124ca83c42fc36b67e1b16a30fc063746c1fb9fd53a6c7d1aea9f15a27f",
+      "bytes": 32135
+    },
+    {
+      "out": "img/logo-ccont-branco.png",
+      "parts": ["assets-b64/img/logo-ccont-branco.png.b64"],
+      "sha256": "76e1eb4b411a561abe0ef4fdc6335c99a3f0f7120caceca16dd3534235507d62",
+      "bytes": 8795
+    },
+    {
+      "out": "img/logo-ccont.png",
+      "parts": [
+        "assets-b64/img/logo-ccont.png.b64.part01",
+        "assets-b64/img/logo-ccont.png.b64.part02"
+      ],
+      "sha256": "26db77a00fd5574ceb903a9b26a1464972c7415ea6788bdf08f137a5abc9bf4c",
+      "bytes": 14107
+    },
+    {
+      "out": "video/bg-desk.mp4",
+      "parts": [
+        "assets-b64/video/bg-desk.mp4.b64.part01",
+        "assets-b64/video/bg-desk.mp4.b64.part02",
+        "assets-b64/video/bg-desk.mp4.b64.part03"
+      ],
+      "sha256": "2812392af83d05d321e42391f9e2779e4b8cd34dcb23c0d5cea28ac2ce643b61",
+      "bytes": 31632
+    },
+    {
+      "out": "video/bg-office.mp4",
+      "parts": [
+        "assets-b64/video/bg-office.mp4.b64.part01",
+        "assets-b64/video/bg-office.mp4.b64.part02",
+        "assets-b64/video/bg-office.mp4.b64.part03",
+        "assets-b64/video/bg-office.mp4.b64.part04"
+      ],
+      "sha256": "5d90526c02a1287724d162a7fab981dfd38c87a4bce0f6b0dae038a30a5bc0d9",
+      "bytes": 46140
+    },
+    {
+      "out": "video/bg-people.mp4",
+      "parts": [
+        "assets-b64/video/bg-people.mp4.b64.part01",
+        "assets-b64/video/bg-people.mp4.b64.part02",
+        "assets-b64/video/bg-people.mp4.b64.part03",
+        "assets-b64/video/bg-people.mp4.b64.part04"
+      ],
+      "sha256": "c1ae386b29f38db14cfc84dab654beaf081e38de6945a94097732b8d2942b85a",
+      "bytes": 43840
+    }
+  ]
+}
