@@ -3,7 +3,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
-import SitePage from './pages/SitePage'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import QuemSomos from './pages/QuemSomos'
+import Servicos from './pages/Servicos'
+import Diferenciais from './pages/Diferenciais'
+import Duvidas from './pages/Duvidas'
+import Contato from './pages/Contato'
 import NotFound from './pages/NotFound'
 
 // ONLY IMPORT AND RENDER WORKING PAGES, NEVER ADD PLACEHOLDER COMPONENTS OR PAGES IN THIS FILE
@@ -15,12 +21,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <Routes>
-        <Route path="/" element={<SitePage />} />
-        <Route path="/quem-somos" element={<SitePage />} />
-        <Route path="/servicos" element={<SitePage />} />
-        <Route path="/diferenciais" element={<SitePage />} />
-        <Route path="/duvidas" element={<SitePage />} />
-        <Route path="/contato" element={<SitePage />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/quem-somos" element={<QuemSomos />} />
+          <Route path="/servicos" element={<Servicos />} />
+          <Route path="/diferenciais" element={<Diferenciais />} />
+          <Route path="/duvidas" element={<Duvidas />} />
+          <Route path="/contato" element={<Contato />} />
+        </Route>
         {/* ADD ALL CUSTOM ROUTES MUST BE ADDED HERE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
