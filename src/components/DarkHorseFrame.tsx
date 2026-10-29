@@ -18,16 +18,16 @@ export default function DarkHorseFrame({
   imageClassName = '',
 }: DarkHorseFrameProps) {
   return (
-    <div className={`relative ${className}`}>
-      {/* Bloco de cor deslocado atrás */}
+    <div className={`relative isolate p-3 sm:p-4 ${className}`}>
+      {/* Bloco de cor deslocado atrás (offset) */}
       <div
-        className={`absolute -inset-2.5 sm:-inset-3.5 ${offsetColor} rounded-[20px] -z-10 translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4`}
+        className={`absolute inset-0 ${offsetColor} rounded-[20px] -z-10 translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4 shadow-sm`}
         aria-hidden="true"
       />
 
-      {/* Padrão de cruzes "+" no canto superior */}
+      {/* Padrão decorativo de pequenas cruzes "+" no canto superior esquerdo (estilo darkhorse.cpa) */}
       <div
-        className="absolute -top-4 -left-4 sm:-top-5 sm:-left-5 -z-10 pointer-events-none select-none text-sky-400/60 font-mono text-sm leading-none grid grid-cols-3 gap-2"
+        className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 z-20 pointer-events-none select-none text-sky-500 font-mono text-sm font-bold leading-none grid grid-cols-3 gap-2 bg-white/70 backdrop-blur-2xs p-1.5 rounded-lg shadow-2xs border border-sky-100/60"
         aria-hidden="true"
       >
         <span>+</span>
@@ -38,9 +38,9 @@ export default function DarkHorseFrame({
         <span>+</span>
       </div>
 
-      {/* Padrão de cruzes "+" no canto inferior */}
+      {/* Padrão decorativo de pequenas cruzes "+" no canto inferior direito */}
       <div
-        className="absolute -bottom-4 -right-3 sm:-bottom-5 sm:-right-4 -z-10 pointer-events-none select-none text-slate-300 font-mono text-xs leading-none grid grid-cols-2 gap-1.5"
+        className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 z-20 pointer-events-none select-none text-sky-600 font-mono text-xs font-bold leading-none grid grid-cols-2 gap-1.5 bg-white/80 backdrop-blur-2xs p-1 rounded-md shadow-2xs border border-slate-200/60"
         aria-hidden="true"
       >
         <span>+</span>
@@ -49,9 +49,9 @@ export default function DarkHorseFrame({
         <span>+</span>
       </div>
 
-      {/* Moldura da imagem com 16px de cantos arredondados */}
+      {/* Moldura da imagem com cantos arredondados (16px = rounded-[16px]) */}
       <div
-        className={`relative overflow-hidden rounded-[16px] bg-slate-100 shadow-lg border border-slate-200/60 ${aspectRatio}`}
+        className={`relative overflow-hidden rounded-[16px] bg-slate-100 shadow-lg border border-slate-200/70 z-10 ${aspectRatio}`}
       >
         <img
           src={src}

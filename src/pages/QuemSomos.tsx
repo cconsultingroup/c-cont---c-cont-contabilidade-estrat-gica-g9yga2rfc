@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import PageBanner from '@/components/PageBanner'
 import DarkHorseFrame from '@/components/DarkHorseFrame'
+import { IMAGES } from '@/lib/siteImages'
 
 export default function QuemSomos() {
   useEffect(() => {
@@ -81,7 +82,7 @@ export default function QuemSomos() {
       <PageBanner
         title="Quem Somos"
         subtitle="Uma contabilidade que nasceu para orientar a tomada de decisão com rigor técnico e visão de futuro."
-        imageSrc="https://img.usecurling.com/p/1920/1080?q=modern%20corporate%20office&color=blue"
+        imageSrc={IMAGES.quemSomosBanner}
         breadcrumb="Institucional"
       />
 
@@ -124,7 +125,7 @@ export default function QuemSomos() {
             {/* Imagem */}
             <div className="lg:col-span-5">
               <DarkHorseFrame
-                src="https://img.usecurling.com/p/1200/900?q=accountants%20meeting&color=blue"
+                src={IMAGES.quemSomosHistoria}
                 alt="Equipe da C Cont em análise estratégica"
                 offsetColor="bg-[#EAF2F6]"
                 aspectRatio="aspect-[4/3]"
@@ -181,14 +182,14 @@ export default function QuemSomos() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-4">
                 <div className="relative mx-auto max-w-xs lg:max-w-none">
-                  <div className="rounded-[18px] overflow-hidden shadow-lg border border-white">
-                    <img
-                      src="https://img.usecurling.com/ppl/large?gender=male&seed=42"
-                      alt="Vinicius Caldas - CEO e sócio fundador"
-                      className="w-full aspect-[4/5] object-cover object-top"
-                    />
-                  </div>
-                  <div className="absolute -bottom-3 -right-3 bg-[#0a1628] text-white px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
+                  <DarkHorseFrame
+                    src={IMAGES.quemSomosVinicius}
+                    alt="Vinicius Caldas - CEO e sócio fundador"
+                    offsetColor="bg-sky-200"
+                    aspectRatio="aspect-[4/5]"
+                    imageClassName="object-top"
+                  />
+                  <div className="absolute -bottom-3 -right-3 z-20 bg-[#0a1628] text-white px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
                     Liderança
                   </div>
                 </div>

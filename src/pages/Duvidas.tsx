@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { IMAGES } from '@/lib/siteImages'
 
 export default function Duvidas() {
   useEffect(() => {
@@ -45,7 +46,7 @@ export default function Duvidas() {
       <PageBanner
         title="Dúvidas Frequentes"
         subtitle="Principais esclarecimentos sobre o modelo de atuação, tecnologia, governança e transição contábil da C Cont."
-        imageSrc="https://img.usecurling.com/p/1920/1080?q=questions%20desk%20office&color=blue"
+        imageSrc={IMAGES.duvidasBanner}
         breadcrumb="Central de Dúvidas"
       />
 

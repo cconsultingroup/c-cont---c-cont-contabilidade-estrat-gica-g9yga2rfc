@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Check } from 'lucide-react'
 import PageBanner from '@/components/PageBanner'
 import DarkHorseFrame from '@/components/DarkHorseFrame'
+import { IMAGES } from '@/lib/siteImages'
 
 export default function Servicos() {
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function Servicos() {
         'Conciliações patrimoniais e controle rigoroso de ativo imobilizado',
         'Demonstrações financeiras auditáveis para bancos e investidores',
       ],
-      image: 'https://img.usecurling.com/p/1200/900?q=financial%20accounting&color=blue',
+      image: IMAGES.servicosAlt1,
       imageLeft: false,
     },
     {
@@ -34,7 +35,7 @@ export default function Servicos() {
         'Revisão contínua de parametrizações e enquadramentos fiscais',
         'Suporte técnico e esclarecimento de dúvidas do time fiscal interno',
       ],
-      image: 'https://img.usecurling.com/p/1200/900?q=tax%20document&color=blue',
+      image: IMAGES.servicosAlt2,
       imageLeft: true,
     },
     {
@@ -48,7 +49,7 @@ export default function Servicos() {
         'Diagnóstico tributário preventivo para redução legítima da carga',
         'Adequação de precificação e margens operacionais à nova legislação',
       ],
-      image: 'https://img.usecurling.com/p/1200/900?q=corporate%20planning&color=blue',
+      image: IMAGES.servicosAlt1,
       imageLeft: false,
     },
     {
@@ -62,7 +63,7 @@ export default function Servicos() {
         'Compensação administrativa via sistema PER/DCOMP',
         'Pareceres técnicos emitidos em conjunto com a Caldas Advocacia',
       ],
-      image: 'https://img.usecurling.com/p/1200/900?q=business%20analysis&color=blue',
+      image: IMAGES.servicosAlt2,
       imageLeft: true,
     },
     {
@@ -76,7 +77,7 @@ export default function Servicos() {
         'Acompanhamento de acordos e convenções coletivas de trabalho',
         'Auditoria preventiva de rotinas para mitigar passivos trabalhistas',
       ],
-      image: 'https://img.usecurling.com/p/1200/900?q=human%20resources&color=blue',
+      image: IMAGES.servicosAlt1,
       imageLeft: false,
     },
     {
@@ -90,7 +91,7 @@ export default function Servicos() {
         'Obtenção e renovação de certidões negativas (CNDs)',
         'Legalização de filiais, inscrições estaduais e municipais',
       ],
-      image: 'https://img.usecurling.com/p/1200/900?q=contract%20signature&color=blue',
+      image: IMAGES.servicosAlt2,
       imageLeft: true,
     },
     {
@@ -104,7 +105,7 @@ export default function Servicos() {
         'Cobrança ativa e acompanhamento de contas a receber',
         'Relatórios de fluxo de caixa realizado versus projetado',
       ],
-      image: 'https://img.usecurling.com/p/1200/900?q=financial%20dashboard&color=blue',
+      image: IMAGES.servicosAlt1,
       imageLeft: false,
     },
     {
@@ -118,7 +119,7 @@ export default function Servicos() {
         'Planejamento orçamentário anual e controle de desvios',
         'Reuniões periódicas de alinhamento estratégico com os sócios',
       ],
-      image: 'https://img.usecurling.com/p/1200/900?q=management%20consulting&color=blue',
+      image: IMAGES.servicosAlt2,
       imageLeft: true,
     },
     {
@@ -132,7 +133,7 @@ export default function Servicos() {
         'Planejamento sucessório na pessoa física integrado à jurídica',
         'Emissão ágil de certificados digitais A1 e A3',
       ],
-      image: 'https://img.usecurling.com/p/1200/900?q=digital%20security&color=blue',
+      image: IMAGES.servicosAlt1,
       imageLeft: false,
     },
   ]
@@ -143,7 +144,7 @@ export default function Servicos() {
       <PageBanner
         title="O que Fazemos"
         subtitle="Estrutura integrada para empresas que buscam conformidade, eficiência operacional e informações confiáveis para conduzir seus negócios."
-        imageSrc="https://img.usecurling.com/p/1920/1080?q=modern%20architecture%20office&color=blue"
+        imageSrc={IMAGES.servicosBanner}
         breadcrumb="Soluções Estratégicas"
       />
 

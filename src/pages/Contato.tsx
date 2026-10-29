@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { MapPin, Mail, Phone, Clock, Building2 } from 'lucide-react'
 import PageBanner from '@/components/PageBanner'
+import { IMAGES } from '@/lib/siteImages'
 
 export default function Contato() {
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function Contato() {
       <PageBanner
         title="Contato"
         subtitle="Converse com nossa equipe para entender como podemos estruturar a contabilidade da sua empresa com segurança e método."
-        imageSrc="https://img.usecurling.com/p/1920/1080?q=contact%20corporate&color=blue"
+        imageSrc={IMAGES.contatoBanner}
         breadcrumb="Canais de Atendimento"
       />
 

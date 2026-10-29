@@ -29,12 +29,16 @@ export default function Header() {
     setMobileOpen(false)
   }, [location.pathname])
 
+  const isHome = location.pathname === '/'
+  // No topo da home sobre o hero escuro: transparente com textos claros; ao rolar ou em outras páginas: branco com sombra
+  const isTransparent = isHome && !isScrolled
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
-        isScrolled
-          ? 'shadow-md py-3 border-b border-slate-100'
-          : 'shadow-sm py-4 border-b border-slate-100/80'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isTransparent
+          ? 'bg-transparent py-4 text-white'
+          : 'bg-white text-[#0a1628] shadow-sm py-3 border-b border-slate-100'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,15 +48,27 @@ export default function Header() {
             className="flex items-center gap-2 shrink-0 group focus:outline-none"
             aria-label="C Cont Contabilidade Estratégica"
           >
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-[#0a1628] flex items-center justify-center text-white font-serif font-bold text-xl shadow-sm">
+            <div className="flex items-center gap-2.5">
+              <div
+                className={`w-10 h-10 rounded-xl flex items-center justify-center font-serif font-bold text-xl shadow-xs transition-colors ${
+                  isTransparent ? 'bg-white text-[#0a1628]' : 'bg-[#0a1628] text-white'
+                }`}
+              >
                 C
               </div>
               <div className="flex flex-col">
-                <span className="font-serif font-bold text-lg leading-tight tracking-tight text-[#0a1628]">
+                <span
+                  className={`font-serif font-bold text-lg leading-tight tracking-tight transition-colors ${
+                    isTransparent ? 'text-white' : 'text-[#0a1628]'
+                  }`}
+                >
                   C CONT
                 </span>
-                <span className="text-[10px] tracking-widest uppercase font-medium text-slate-500">
+                <span
+                  className={`text-[10px] tracking-widest uppercase font-medium transition-colors ${
+                    isTransparent ? 'text-slate-300' : 'text-slate-500'
+                  }`}
+                >
                   Contabilidade Estratégica
                 </span>
               </div>
@@ -69,10 +85,14 @@ export default function Header() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`px-3.5 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                  className={`px-3.5 py-2 text-sm rounded-full transition-all duration-200 ${
                     isActive
-                      ? 'text-[#0a1628] bg-[#EAF2F6] font-semibold shadow-xs'
-                      : 'text-slate-600 hover:text-[#0a1628] hover:bg-slate-50'
+                      ? isTransparent
+                        ? 'text-white bg-white/20 font-semibold shadow-xs backdrop-blur-xs'
+                        : 'text-[#0a1628] bg-[#EAF2F6] font-semibold shadow-xs'
+                      : isTransparent
+                        ? 'text-slate-200 hover:text-white hover:bg-white/10'
+                        : 'text-slate-600 hover:text-[#0a1628] hover:bg-slate-50'
                   }`}
                 >
                   {item.label}
@@ -82,7 +102,13 @@ export default function Header() {
           </nav>
 
           <div className="hidden sm:flex items-center justify-end shrink-0">
-            <span className="text-xs uppercase tracking-widest font-semibold text-[#0a1628] bg-slate-50/90 border border-slate-200/80 px-3.5 py-1.5 rounded-full shadow-2xs">
+            <span
+              className={`text-xs uppercase tracking-widest font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
+                isTransparent
+                  ? 'text-white bg-white/15 border border-white/25 backdrop-blur-xs'
+                  : 'text-[#0a1628] bg-slate-50 border border-slate-200/80'
+              }`}
+            >
               C Consulting Group
             </span>
           </div>
@@ -90,7 +116,11 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-700 hover:text-[#0a1628] hover:bg-slate-100 transition-colors focus:outline-none"
+            className={`lg:hidden p-2 rounded-xl transition-colors focus:outline-none ${
+              isTransparent
+                ? 'text-white hover:bg-white/10'
+                : 'text-slate-700 hover:text-[#0a1628] hover:bg-slate-100'
+            }`}
             aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}

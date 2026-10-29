@@ -3,11 +3,17 @@
    - This component is used in the App.tsx file to wrap the main content of the app */
 
 import { Outlet } from 'react-router-dom'
+import Header from './Header'
+import Footer from './Footer'
 
 export default function Layout() {
   return (
-    <main className="flex flex-col min-h-screen">
-      <Outlet />
-    </main>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-1">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
   )
 }

@@ -15,6 +15,7 @@ import {
 import DarkHorseFrame from '@/components/DarkHorseFrame'
 import NumberStats from '@/components/NumberStats'
 import SealBadges from '@/components/SealBadges'
+import { HERO_VIDEO_SRC, HERO_POSTER_SRC, IMAGES } from '@/lib/siteImages'
 
 export default function Home() {
   useEffect(() => {
@@ -44,10 +45,10 @@ export default function Home() {
             muted
             loop
             playsInline
-            poster="https://img.usecurling.com/p/1920/1080?q=business%20meeting&color=blue"
+            poster={HERO_POSTER_SRC}
             className="w-full h-full object-cover object-center filter brightness-[0.85]"
           >
-            <source src="https://img.usecurling.com/p/800/600?q=abstract" type="video/mp4" />
+            <source src={HERO_VIDEO_SRC} type="video/mp4" />
           </video>
           {/* Overlay azul-marinho ~60% */}
           <div className="absolute inset-0 bg-[#0a1628]/60 backdrop-brightness-95" />
@@ -113,8 +114,8 @@ export default function Home() {
             {/* Imagem à direita com moldura Dark Horse */}
             <div className="lg:col-span-5">
               <DarkHorseFrame
-                src="https://img.usecurling.com/p/1200/900?q=consulting%20meeting&color=blue"
-                alt="Consultores da C Cont em reunião de estratégia contábil"
+                src={IMAGES.homeContabilidade}
+                alt="Contabilidade estratégica para empresas"
                 offsetColor="bg-[#EAF2F6]"
                 aspectRatio="aspect-[4/3]"
               />
@@ -177,7 +178,7 @@ export default function Home() {
             {/* Imagem à esquerda */}
             <div className="lg:col-span-5 order-2 lg:order-1">
               <DarkHorseFrame
-                src="https://img.usecurling.com/p/1200/900?q=tax%20finance&color=blue"
+                src={IMAGES.homeTributario}
                 alt="Planejamento tributário e Reforma do Consumo"
                 offsetColor="bg-white"
                 aspectRatio="aspect-[4/3]"
@@ -260,8 +261,8 @@ export default function Home() {
             {/* Imagem à direita com moldura */}
             <div className="lg:col-span-5">
               <DarkHorseFrame
-                src="https://img.usecurling.com/p/1200/900?q=executive%20team&color=blue"
-                alt="Reunião integrada do C Consulting Group"
+                src={IMAGES.homeGrupo}
+                alt="Um grupo, soluções integradas - C Consulting Group"
                 offsetColor="bg-slate-800"
                 aspectRatio="aspect-[4/3]"
               />

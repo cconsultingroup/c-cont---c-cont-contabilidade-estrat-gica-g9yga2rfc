@@ -3,6 +3,7 @@ import { Sparkles, Eye, ShieldCheck, ClipboardList, CalendarCheck, Users } from 
 import PageBanner from '@/components/PageBanner'
 import NumberStats from '@/components/NumberStats'
 import DarkHorseFrame from '@/components/DarkHorseFrame'
+import { IMAGES } from '@/lib/siteImages'
 
 export default function Diferenciais() {
   useEffect(() => {
@@ -48,7 +49,7 @@ export default function Diferenciais() {
       <PageBanner
         title="Diferenciais"
         subtitle="Acompanhamento personalizado e estratégico. Nossa atuação combina responsabilidade técnica, processos organizados e comunicação transparente."
-        imageSrc="https://img.usecurling.com/p/1920/1080?q=modern%20meeting%20room&color=blue"
+        imageSrc={IMAGES.diferenciaisBanner}
         breadcrumb="Por que a C Cont"
       />
 
@@ -129,7 +130,7 @@ export default function Diferenciais() {
             {/* Imagem */}
             <div className="lg:col-span-5">
               <DarkHorseFrame
-                src="https://img.usecurling.com/p/1200/900?q=client%20consultant&color=blue"
+                src={IMAGES.diferenciaisBlock}
                 alt="Consultores da C Cont em reunião de acompanhamento"
                 offsetColor="bg-[#EAF2F6]"
                 aspectRatio="aspect-[4/3]"
