@@ -51,7 +51,7 @@ export default function Duvidas() {
       />
 
       {/* Conteúdo com Acordeão shadcn */}
-      <section className="py-20 lg:py-28 bg-[#F6F5F2]">
+      <section className="py-20 lg:py-28 bg-[#EEF2F7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-8 sm:p-12 rounded-[24px] border border-slate-200/80 shadow-sm">
             <Accordion type="single" collapsible className="w-full space-y-4">
@@ -59,12 +59,12 @@ export default function Duvidas() {
                 <AccordionItem
                   key={idx}
                   value={`item-${idx}`}
-                  className="border border-slate-100 rounded-[14px] px-6 py-1 bg-slate-50/50 data-[state=open]:bg-white data-[state=open]:border-sky-200 data-[state=open]:shadow-xs transition-all"
+                  className="border border-slate-200/80 rounded-[14px] px-6 py-1 bg-[#EEF2F7]/40 data-[state=open]:bg-white data-[state=open]:border-[#0B2347]/40 data-[state=open]:shadow-xs transition-all"
                 >
-                  <AccordionTrigger className="text-left font-serif font-bold text-base sm:text-lg text-[#0a1628] hover:text-sky-700 hover:no-underline py-4">
+                  <AccordionTrigger className="text-left font-bold text-base sm:text-lg text-[#00102A] hover:text-[#0B2347] hover:no-underline py-4">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm sm:text-base text-slate-600 leading-relaxed font-light pb-5">
+                  <AccordionContent className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal pb-5">
                     {item.a}
                   </AccordionContent>
                 </AccordionItem>

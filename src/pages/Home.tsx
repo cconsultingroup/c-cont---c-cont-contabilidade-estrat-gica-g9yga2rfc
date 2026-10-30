@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import SegmentosCarrossel from '@/components/SegmentosCarrossel'
-import { HERO_VIDEO_SRC, HERO_POSTER_SRC } from '@/lib/siteImages'
+import { HERO_VIDEO_SRC, HERO_POSTER_SRC, IMAGES } from '@/lib/siteImages'
 
 export default function Home() {
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function Home() {
         {/* Imagem de fundo com overlay azul-marinho ~70% */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://img.usecurling.com/p/1920/1080?q=business+meeting+office"
+            src={IMAGES.homeContabilidade}
             alt="Contabilidade estratégica para empresas"
             className="w-full h-full object-cover object-center filter brightness-90"
           />
@@ -61,9 +61,9 @@ export default function Home() {
               Contabilidade estratégica para empresas.
             </h2>
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-              Atuamos como um braço consultivo essencial para a sua diretoria, integrando inteligência
-              fiscal, conformidade regulatória rigorosa e relatórios gerenciais estruturados para a
-              tomada de decisões de alto impacto.
+              Atuamos como um braço consultivo essencial para a sua diretoria, integrando
+              inteligência fiscal, conformidade regulatória rigorosa e relatórios gerenciais
+              estruturados para a tomada de decisões de alto impacto.
             </p>
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
               Com metodologias ágeis de fechamento contábil e auditoria preventiva contínua,
@@ -91,7 +91,7 @@ export default function Home() {
         {/* Imagem de fundo com overlay escuro */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://img.usecurling.com/p/1920/1080?q=finance+analytics+tax"
+            src={IMAGES.homeTributario}
             alt="Planejamento tributário e Reforma do Consumo"
             className="w-full h-full object-cover object-center filter brightness-75"
           />
@@ -109,8 +109,8 @@ export default function Home() {
             </h2>
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
               Com o advento da Reforma Tributária (CBS, IBS e Imposto Seletivo) e as revisões em
-              contribuições sobre a folha, preparamos as empresas para a transição fiscal com segurança
-              jurídica, mapeamento de créditos e redução legítima de encargos.
+              contribuições sobre a folha, preparamos as empresas para a transição fiscal com
+              segurança jurídica, mapeamento de créditos e redução legítima de encargos.
             </p>
           </div>
 
@@ -120,14 +120,12 @@ export default function Home() {
               <span className="inline-block px-3 py-1 rounded-full bg-sky-950 text-sky-300 border border-sky-800 text-[11px] font-semibold tracking-wider uppercase mb-4">
                 Transição Fiscal 2026+
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                New Tax Plan
-              </h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">New Tax Plan</h3>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
                 Preparação estratégica para a Reforma do Consumo – CBS, IBS e IS: mapeamento de
                 impactos na cadeia de suprimentos, modelagem de transição alíquota a alíquota,
-                revisão de precificação e regimes de não-cumulatividade plena para proteger a margem do
-                seu negócio.
+                revisão de precificação e regimes de não-cumulatividade plena para proteger a margem
+                do seu negócio.
               </p>
             </div>
 

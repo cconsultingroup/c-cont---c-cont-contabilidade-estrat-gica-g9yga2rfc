@@ -9,7 +9,16 @@ export const IMAGES = {
   // Início
   homeContabilidade: `${PEXELS_PHOTOS}/7654119/pexels-photo-7654119.jpeg?auto=compress&cs=tinysrgb&w=1200`,
   homeTributario: `${PEXELS_PHOTOS}/7433827/pexels-photo-7433827.jpeg?auto=compress&cs=tinysrgb&w=1200`,
-  homeGrupo: `${PEXELS_PHOTOS}/6930545/pexels-photo-6930545.jpeg?auto=compress&cs=tinysrgb&w=1200`,
+  homeRecife: `${PEXELS_PHOTOS}/7654117/pexels-photo-7654117.jpeg?auto=compress&cs=tinysrgb&w=1200`,
+  // Segmentos Pexels fotos dedicadas
+  segmentoComercio: `${PEXELS_PHOTOS}/7654119/pexels-photo-7654119.jpeg?auto=compress&cs=tinysrgb&w=1200`,
+  segmentoIndustria: `${PEXELS_PHOTOS}/7433827/pexels-photo-7433827.jpeg?auto=compress&cs=tinysrgb&w=1200`,
+  segmentoServicos: `${PEXELS_PHOTOS}/7654179/pexels-photo-7654179.jpeg?auto=compress&cs=tinysrgb&w=1200`,
+  segmentoSaude: `${PEXELS_PHOTOS}/6779567/pexels-photo-6779567.jpeg?auto=compress&cs=tinysrgb&w=1200`,
+  segmentoConstrucao: `${PEXELS_PHOTOS}/7654403/pexels-photo-7654403.jpeg?auto=compress&cs=tinysrgb&w=1200`,
+  segmentoAgronegocio: `${PEXELS_PHOTOS}/6930549/pexels-photo-6930549.jpeg?auto=compress&cs=tinysrgb&w=1200`,
+  segmentoTecnologia: `${PEXELS_PHOTOS}/7654174/pexels-photo-7654174.jpeg?auto=compress&cs=tinysrgb&w=1200`,
+  segmentoHoldings: `${PEXELS_PHOTOS}/7654438/pexels-photo-7654438.jpeg?auto=compress&cs=tinysrgb&w=1200`,
 
   // Quem Somos
   quemSomosBanner: `${PEXELS_PHOTOS}/7654438/pexels-photo-7654438.jpeg?auto=compress&cs=tinysrgb&w=1920`,

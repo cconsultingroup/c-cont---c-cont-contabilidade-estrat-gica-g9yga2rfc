@@ -8,17 +8,34 @@
 
 @layer base {
   * {
-    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    font-family:
+      'Montserrat',
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
   body {
-    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-    color: #00102A;
+    font-family:
+      'Montserrat',
+      system-ui,
+      -apple-system,
+      sans-serif;
+    color: #00102a;
     background-color: #ffffff;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family:
+      'Montserrat',
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
   :root {

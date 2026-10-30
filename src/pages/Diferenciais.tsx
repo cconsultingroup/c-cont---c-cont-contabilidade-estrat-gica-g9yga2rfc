@@ -80,9 +80,7 @@ export default function Diferenciais() {
                     <div className="w-12 h-12 rounded-xl bg-[#EEF2F7] text-[#00102A] flex items-center justify-center mb-6">
                       <Icon className="w-6 h-6 text-[#0B2347]" />
                     </div>
-                    <h3 className="font-bold text-xl text-[#00102A] mb-3">
-                      {item.title}
-                    </h3>
+                    <h3 className="font-bold text-xl text-[#00102A] mb-3">{item.title}</h3>
                   </div>
                   <p className="text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
                 </div>

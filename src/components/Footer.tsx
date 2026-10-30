@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react'
+import { logoBranco } from '@/lib/logos'
+import { IMAGES } from '@/lib/siteImages'
 
 export default function Footer() {
   const mapsExternalLink =
@@ -14,7 +16,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link to="/" className="inline-block" aria-label="C Cont Contabilidade">
               <img
-                src="/ccont-logo-branco.png"
+                src={logoBranco}
                 alt="C Cont Contabilidade"
                 className="h-10 w-auto object-contain"
               />
@@ -119,9 +121,9 @@ export default function Footer() {
               {/* a) Imagem/vídeo de Recife em loop com efeito de zoom suave */}
               <div className="relative h-24 w-full rounded-xl overflow-hidden bg-slate-900">
                 <img
-                  src="https://img.usecurling.com/p/640/320?q=recife+city+coast"
+                  src={IMAGES.homeRecife}
                   alt="Recife / PE"
-                  className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700 animate-pulse"
+                  className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#00102A]/80 via-transparent to-transparent" />
                 <span className="absolute bottom-2 left-2 text-[11px] font-semibold tracking-wider uppercase text-white bg-black/50 px-2.5 py-0.5 rounded-full backdrop-blur-xs border border-white/10">

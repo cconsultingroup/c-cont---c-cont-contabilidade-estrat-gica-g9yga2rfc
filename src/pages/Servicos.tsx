@@ -151,13 +151,13 @@ export default function Servicos() {
       {/* Introdução com números */}
       <section className="py-16 bg-white border-b border-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-xs uppercase tracking-widest font-semibold text-[#154671]">
+          <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
             Visão Integrada
           </span>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0a1628]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#00102A]">
             Soluções completas e desenhadas para a sua realidade
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed font-light">
+          <p className="text-base text-slate-600 leading-relaxed font-normal">
             Conectamos as áreas contábil, fiscal, tributária, pessoal e societária para que sua
             empresa tenha total visibilidade da operação, sem ruído, sem retrabalho e com suporte
             consultivo permanente.
@@ -169,12 +169,12 @@ export default function Servicos() {
       <div className="flex flex-col">
         {services.map((srv, idx) => {
           const isEven = idx % 2 === 0
-          const bgSection = isEven ? 'bg-[#F6F5F2]' : 'bg-white'
+          const bgSection = isEven ? 'bg-[#EEF2F7]' : 'bg-white'
 
           return (
             <section
               key={srv.title}
-              className={`py-20 lg:py-24 ${bgSection} border-b border-slate-200/50`}
+              className={`py-20 lg:py-24 ${bgSection} border-b border-slate-200/60`}
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -187,7 +187,7 @@ export default function Servicos() {
                     <DarkHorseFrame
                       src={srv.image}
                       alt={srv.title}
-                      offsetColor={isEven ? 'bg-[#EAF2F6]' : 'bg-slate-200/60'}
+                      offsetColor={isEven ? 'bg-slate-300/70' : 'bg-[#EEF2F7]'}
                       aspectRatio="aspect-[4/3]"
                     />
                   </div>
@@ -198,28 +198,28 @@ export default function Servicos() {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="font-serif text-2xl font-bold text-sky-600">
-                        {srv.number}
-                      </span>
-                      <span className="h-px w-8 bg-sky-200" />
-                      <span className="text-xs uppercase tracking-widest font-semibold text-slate-500">
+                      <span className="text-2xl font-extrabold text-[#0B2347]">{srv.number}</span>
+                      <span className="h-px w-8 bg-slate-300" />
+                      <span className="text-xs uppercase tracking-widest font-bold text-slate-500">
                         {srv.subtitle}
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0a1628]">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#00102A]">
                       {srv.title}
                     </h3>
 
-                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-light">
+                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                       {srv.desc}
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                       {srv.topics.map((tp) => (
                         <div key={tp} className="flex items-start gap-2.5">
-                          <Check className="w-4 h-4 text-sky-600 shrink-0 mt-1" />
-                          <span className="text-xs sm:text-sm text-slate-700 font-light">{tp}</span>
+                          <Check className="w-4 h-4 text-[#0B2347] shrink-0 mt-1" />
+                          <span className="text-xs sm:text-sm text-slate-700 font-normal">
+                            {tp}
+                          </span>
                         </div>
                       ))}
                     </div>

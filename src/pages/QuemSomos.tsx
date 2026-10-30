@@ -1,12 +1,5 @@
 import React, { useEffect } from 'react'
-import {
-  Compass,
-  Layers,
-  ShieldCheck,
-  Award,
-  Eye,
-  UserCheck,
-} from 'lucide-react'
+import { Compass, Layers, ShieldCheck, Award, Eye, UserCheck } from 'lucide-react'
 import PageBanner from '@/components/PageBanner'
 import DarkHorseFrame from '@/components/DarkHorseFrame'
 import { IMAGES } from '@/lib/siteImages'
@@ -73,10 +66,7 @@ export default function QuemSomos() {
               </h2>
               <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                 <p>
-                  A{' '}
-                  <strong className="text-slate-900 font-bold">
-                    C Cont Contabilidade
-                  </strong>{' '}
+                  A <strong className="text-slate-900 font-bold">C Cont Contabilidade</strong>{' '}
                   nasceu com o propósito de transformar o modo como as empresas enxergam a
                   contabilidade. Mais do que cumprir obrigações fiscais e burocráticas, atuamos como
                   verdadeiros parceiros estratégicos na condução dos negócios.
@@ -114,9 +104,7 @@ export default function QuemSomos() {
             <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
               Princípios Fundamentais
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#00102A]">
-              Nossos valores
-            </h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#00102A]">Nossos valores</h2>
             <p className="text-base text-slate-600 font-normal">
               Pilares que orientam cada entrega técnica, relacionamento com clientes e decisão
               institucional da C Cont.
@@ -135,9 +123,7 @@ export default function QuemSomos() {
                     <div className="w-12 h-12 rounded-xl bg-[#EEF2F7] text-[#00102A] flex items-center justify-center mb-5">
                       <Icon className="w-6 h-6 text-[#0B2347]" />
                     </div>
-                    <h3 className="font-bold text-xl text-[#00102A] mb-3">
-                      {val.title}
-                    </h3>
+                    <h3 className="font-bold text-xl text-[#00102A] mb-3">{val.title}</h3>
                   </div>
                   <p className="text-sm text-slate-600 leading-relaxed font-normal">{val.desc}</p>
                 </div>
@@ -169,26 +155,27 @@ export default function QuemSomos() {
 
               <div className="lg:col-span-8 space-y-4">
                 <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
-                  Diretoria Executiva
+                  Liderança Executiva
                 </span>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#00102A]">
-                  Liderança e Visão Estratégica
+                  Vinicius Caldas
                 </h3>
                 <p className="text-sm sm:text-base font-semibold text-[#0B2347]">
-                  Diretoria Executiva da C Cont Contabilidade
+                  CEO e sócio fundador — Direito (UNICAP), técnico em Contabilidade, especialização
+                  em Direito Tributário (IBET)
                 </p>
                 <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed font-normal pt-2">
                   <p>
-                    Com sólida formação acadêmica e especialização em{' '}
-                    <strong>Direito Tributário e Prática Contábil Corporativa</strong>, nossa
-                    liderança reúne uma bagagem interdisciplinar única que combina precisão contábil,
-                    segurança jurídica e visão de negócios.
+                    À frente da C Cont Contabilidade, reúne uma trajetória marcada pela integração
+                    entre a precisão contábil e a segurança jurídica tributária, atuando diretamente
+                    na orientação consultiva e no planejamento estratégico de empresas de médio e
+                    grande porte.
                   </p>
                   <p>
-                    Nossa missão executiva é orientar empresas na navegação pelo complexo cenário
-                    tributário brasileiro, transformando a rotina contábil em um diferencial
-                    competitivo sustentável com previsibilidade de caixa, governança e conformidade
-                    integral perante os órgãos reguladores.
+                    Com visão focada em conformidade, governança corporativa e eficiência fiscal,
+                    conduz a equipe técnica na entrega de soluções personalizadas que transformam
+                    rotinas contábeis em instrumentos claros de gestão e suporte à tomada de decisão
+                    executiva.
                   </p>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import { logoAzul, logoBranco } from '@/lib/logos'
 
 const NAV_ITEMS = [
   { label: 'Início', path: '/' },
@@ -49,14 +50,7 @@ export default function Header() {
             aria-label="C Cont Contabilidade"
           >
             <img
-              src={isTransparent ? '/ccont-logo-branco.png' : '/ccont-logo-azul.png'}
-              onError={(e) => {
-                // Fallback para import direto caso necessário
-                const target = e.currentTarget
-                if (isTransparent && !target.src.includes('ccont-logo-branco')) {
-                  target.src = '/ccont-logo-branco.png'
-                }
-              }}
+              src={isTransparent ? logoBranco : logoAzul}
               alt="C Cont Contabilidade"
               className="h-10 w-auto object-contain transition-opacity duration-200"
             />

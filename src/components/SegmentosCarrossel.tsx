@@ -21,6 +21,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog'
+import { IMAGES } from '@/lib/siteImages'
 
 export interface SegmentItem {
   id: string
@@ -38,9 +39,10 @@ export const SEGMENTS: SegmentItem[] = [
     id: 'comercio',
     name: 'Comércio',
     tag: 'Varejo & Atacado',
-    photo: 'https://img.usecurling.com/p/800/600?q=store+retail',
+    photo: IMAGES.segmentoComercio,
     icon: ShoppingBag,
-    summary: 'Estruturação contábil e fiscal de alta precisão para empresas comerciais físicas e digitais.',
+    summary:
+      'Estruturação contábil e fiscal de alta precisão para empresas comerciais físicas e digitais.',
     description:
       'A C Cont apoia empresas do comércio atacadista e varejista na gestão estratégica de estoques, apuração rigorosa de ICMS e substituição tributária. Mapeamos incentivos fiscais setoriais e organizamos rotinas ágeis para garantir fechamentos em data fixa. Nossas análises oferecem previsibilidade de margem e segurança contra autuações em operações interestaduais.',
     topics: [
@@ -55,7 +57,7 @@ export const SEGMENTS: SegmentItem[] = [
     id: 'industria',
     name: 'Indústria',
     tag: 'Transformação & Manufatura',
-    photo: 'https://img.usecurling.com/p/800/600?q=factory+industry',
+    photo: IMAGES.segmentoIndustria,
     icon: Factory,
     summary: 'Controle acurado de custos produtivos, IPI e incentivos à industrialização.',
     description:
@@ -72,7 +74,7 @@ export const SEGMENTS: SegmentItem[] = [
     id: 'servicos',
     name: 'Serviços',
     tag: 'Corporativo & Consultivo',
-    photo: 'https://img.usecurling.com/p/800/600?q=office+consulting',
+    photo: IMAGES.segmentoServicos,
     icon: Briefcase,
     summary: 'Otimização tributária de ISS, retenções na fonte e retenção de talentos.',
     description:
@@ -89,9 +91,10 @@ export const SEGMENTS: SegmentItem[] = [
     id: 'saude',
     name: 'Saúde',
     tag: 'Clínicas & Grupos Médicos',
-    photo: 'https://img.usecurling.com/p/800/600?q=doctor+clinic',
+    photo: IMAGES.segmentoSaude,
     icon: HeartPulse,
-    summary: 'Equiparação hospitalar, segurança médica societária e conformidade fiscal na área de saúde.',
+    summary:
+      'Equiparação hospitalar, segurança médica societária e conformidade fiscal na área de saúde.',
     description:
       'Estruturamos clínicas, laboratórios e consultórios médicos com foco em proteção patrimonial e redução da base de cálculo de IRPJ e CSLL por meio da equiparação hospitalar legal. Orientamos a divisão societária entre profissionais de saúde e asseguramos o cumprimento de normas contábeis específicas do setor médico. Atuação próxima para mitigar riscos fiscais e garantir conformidade médica.',
     topics: [
@@ -106,7 +109,7 @@ export const SEGMENTS: SegmentItem[] = [
     id: 'construcao',
     name: 'Construção',
     tag: 'Engenharia & Incorporação',
-    photo: 'https://img.usecurling.com/p/800/600?q=architecture+construction',
+    photo: IMAGES.segmentoConstrucao,
     icon: HardHat,
     summary: 'Patrimônio de Afetação, Regime Especial de Tributação (RET) e controle por obra.',
     description:
@@ -123,7 +126,7 @@ export const SEGMENTS: SegmentItem[] = [
     id: 'agronegocio',
     name: 'Agronegócio',
     tag: 'Produtores & Agroindústria',
-    photo: 'https://img.usecurling.com/p/800/600?q=agriculture+farm',
+    photo: IMAGES.segmentoAgronegocio,
     icon: Sprout,
     summary: 'Livro Caixa Digital do Produtor Rural, Funrural e gestão de ativos biológicos.',
     description:
@@ -140,7 +143,7 @@ export const SEGMENTS: SegmentItem[] = [
     id: 'tecnologia',
     name: 'Tecnologia',
     tag: 'Startups, SaaS & Digitais',
-    photo: 'https://img.usecurling.com/p/800/600?q=coding+software',
+    photo: IMAGES.segmentoTecnologia,
     icon: Cpu,
     summary: 'Incentivos à inovação, operações cross-border e escalabilidade contábil.',
     description:
@@ -157,9 +160,10 @@ export const SEGMENTS: SegmentItem[] = [
     id: 'holdings',
     name: 'Holdings e Patrimônio',
     tag: 'Proteção & Sucessão Familiar',
-    photo: 'https://img.usecurling.com/p/800/600?q=skyscraper+building',
+    photo: IMAGES.segmentoHoldings,
     icon: Building2,
-    summary: 'Blindagem patrimonial lícita, governança sucessória e eficiência em locações e dividendos.',
+    summary:
+      'Blindagem patrimonial lícita, governança sucessória e eficiência em locações e dividendos.',
     description:
       'A C Cont estrutura Holdings Patrimoniais e Familiares para organizar o patrimônio de famílias e grupos empresariais. Reduzimos a tributação sobre rendimentos de aluguéis e ganhos de capital na venda de imóveis, além de desenhar o plano de sucessão em vida com doação de quotas com reserva de usufruto. Uma condução séria e sigilosa para preservar o legado familiar.',
     topics: [
@@ -187,7 +191,7 @@ export default function SegmentosCarrossel() {
         stopOnInteraction: false,
         stopOnMouseEnter: true,
       }),
-    ]
+    ],
   )
 
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
@@ -207,7 +211,7 @@ export default function SegmentosCarrossel() {
     (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index)
     },
-    [emblaApi]
+    [emblaApi],
   )
 
   const onSelect = useCallback(() => {
@@ -238,8 +242,8 @@ export default function SegmentosCarrossel() {
               SEGMENTOS ATENDIDOS
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Compreendemos as exigências tributárias, fiscais e societárias específicas de cada setor
-              econômico, entregando inteligência contábil adaptada ao seu modelo de negócio.
+              Compreendemos as exigências tributárias, fiscais e societárias específicas de cada
+              setor econômico, entregando inteligência contábil adaptada ao seu modelo de negócio.
             </p>
           </div>
 
@@ -267,7 +271,10 @@ export default function SegmentosCarrossel() {
         </div>
 
         {/* Carrossel Embla */}
-        <div className="overflow-hidden cursor-grab active:cursor-grabbing -mx-4 px-4 sm:mx-0 sm:px-0" ref={emblaRef}>
+        <div
+          className="overflow-hidden cursor-grab active:cursor-grabbing -mx-4 px-4 sm:mx-0 sm:px-0"
+          ref={emblaRef}
+        >
           <div className="flex gap-6">
             {SEGMENTS.map((seg) => {
               const Icon = seg.icon
@@ -329,9 +336,7 @@ export default function SegmentosCarrossel() {
               onClick={() => scrollTo(index)}
               aria-label={`Ir para slide ${index + 1}`}
               className={`h-2 rounded-full transition-all duration-300 ${
-                index === selectedIndex
-                  ? 'w-8 bg-[#00102A]'
-                  : 'w-2 bg-slate-300 hover:bg-slate-400'
+                index === selectedIndex ? 'w-8 bg-[#00102A]' : 'w-2 bg-slate-300 hover:bg-slate-400'
               }`}
             />
           ))}
@@ -396,7 +401,7 @@ export default function SegmentosCarrossel() {
                   href="/contato"
                   className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#00102A] hover:bg-[#0B2347] text-white text-xs font-semibold uppercase tracking-wider text-center transition-colors"
                 >
-                  Falar com um especialista
+                  Fale conosco
                 </a>
               </div>
             </div>
