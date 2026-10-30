@@ -71,6 +71,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  to="/carreiras"
+                  className="text-slate-300 hover:text-white transition-colors inline-flex items-center gap-1.5"
+                >
+                  Carreiras
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/contato"
                   className="text-slate-300 hover:text-white transition-colors inline-flex items-center gap-1.5"
                 >

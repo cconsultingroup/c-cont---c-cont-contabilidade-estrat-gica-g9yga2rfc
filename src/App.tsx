@@ -9,6 +9,7 @@ import QuemSomos from './pages/QuemSomos'
 import Servicos from './pages/Servicos'
 import Diferenciais from './pages/Diferenciais'
 import Duvidas from './pages/Duvidas'
+import Carreiras from './pages/Carreiras'
 import Contato from './pages/Contato'
 import NotFound from './pages/NotFound'
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/servicos" element={<Servicos />} />
           <Route path="/diferenciais" element={<Diferenciais />} />
           <Route path="/duvidas" element={<Duvidas />} />
+          <Route path="/carreiras" element={<Carreiras />} />
           <Route path="/contato" element={<Contato />} />
         </Route>
         {/* ADD ALL CUSTOM ROUTES MUST BE ADDED HERE */}

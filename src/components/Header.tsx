@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { label: 'O que Fazemos', path: '/servicos' },
   { label: 'Diferenciais', path: '/diferenciais' },
   { label: 'Dúvidas', path: '/duvidas' },
+  { label: 'Carreiras', path: '/carreiras' },
   { label: 'Contato', path: '/contato' },
 ]
 

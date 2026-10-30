@@ -37,4 +37,8 @@ export const IMAGES = {
   // Dúvidas e Contato
   duvidasBanner: `${PEXELS_PHOTOS}/7654117/pexels-photo-7654117.jpeg?auto=compress&cs=tinysrgb&w=1920`,
   contatoBanner: `${PEXELS_PHOTOS}/7654117/pexels-photo-7654117.jpeg?auto=compress&cs=tinysrgb&w=1920`,
+
+  // Carreiras
+  carreirasBanner: `${PEXELS_PHOTOS}/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1920`,
+  carreirasTrabalhar: `${PEXELS_PHOTOS}/1181605/pexels-photo-1181605.jpeg?auto=compress&cs=tinysrgb&w=1200`,
 } as const
