@@ -61,7 +61,7 @@ export default function Servicos() {
         'Revisão de contribuições ao Sistema S (teto de 20 salários mínimos)',
         'Exclusão do ICMS e tributos da base de cálculo de PIS/Cofins',
         'Compensação administrativa via sistema PER/DCOMP',
-        'Pareceres técnicos emitidos em conjunto com a Caldas Advocacia',
+        'Pareceres técnicos especializados e fundamentação jurisprudencial sólida',
       ],
       image: IMAGES.servicosAlt2,
       imageLeft: true,

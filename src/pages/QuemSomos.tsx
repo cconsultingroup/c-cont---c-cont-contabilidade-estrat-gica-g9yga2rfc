@@ -6,9 +6,6 @@ import {
   Award,
   Eye,
   UserCheck,
-  Building,
-  Scale,
-  TrendingUp,
 } from 'lucide-react'
 import PageBanner from '@/components/PageBanner'
 import DarkHorseFrame from '@/components/DarkHorseFrame'
@@ -27,7 +24,7 @@ export default function QuemSomos() {
     },
     {
       title: 'Integração',
-      desc: 'Operação articulada entre contabilidade, direito empresarial e mercado financeiro.',
+      desc: 'Operação articulada entre rotinas contábeis, conformidade fiscal e visão de negócios.',
       icon: Layers,
     },
     {
@@ -47,32 +44,8 @@ export default function QuemSomos() {
     },
     {
       title: 'Personalização',
-      desc: 'Atendimento próximo e soluções desenhadas sob medida para a realidade do negócio.',
+      desc: 'Atendimento próximo e soluções desenhadas sob medida para a realidade de cada setor.',
       icon: UserCheck,
-    },
-  ]
-
-  const groupCompanies = [
-    {
-      name: 'C Cont',
-      segment: 'Contabilidade Estratégica',
-      desc: 'Gestão contábil, fiscal, trabalhista e societária com alta tecnologia e visão consultiva para orientar decisões empresariais.',
-      icon: Building,
-      badge: 'Hub Contábil',
-    },
-    {
-      name: 'Caldas Advocacia',
-      segment: 'Direito Empresarial e Tributário',
-      desc: 'Assessoria jurídica corporativa especializada em consultoria e contencioso tributário, contratos, societário e reorganizações.',
-      icon: Scale,
-      badge: 'Hub Jurídico',
-    },
-    {
-      name: 'C Capital',
-      segment: 'Estruturação Financeira e Patrimonial',
-      desc: 'Soluções de investimento corporativo, gestão de patrimônio e estruturação financeira em parceria de credenciamento com o BTG Pactual.',
-      icon: TrendingUp,
-      badge: 'Parceria BTG Pactual',
     },
   ]
 
@@ -92,17 +65,17 @@ export default function QuemSomos() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Texto */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs uppercase tracking-widest font-semibold text-[#154671]">
+              <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
                 Nossa Trajetória
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a1628] leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#00102A] leading-tight">
                 Uma contabilidade que orienta a decisão.
               </h2>
-              <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed font-light">
+              <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                 <p>
                   A{' '}
-                  <strong className="text-slate-900 font-semibold">
-                    C Cont Contabilidade Estratégica
+                  <strong className="text-slate-900 font-bold">
+                    C Cont Contabilidade
                   </strong>{' '}
                   nasceu com o propósito de transformar o modo como as empresas enxergam a
                   contabilidade. Mais do que cumprir obrigações fiscais e burocráticas, atuamos como
@@ -116,8 +89,7 @@ export default function QuemSomos() {
                 <p>
                   Acreditamos que a contabilidade bem executada é uma bússola para a diretoria: ela
                   identifica riscos antes que se tornem passivos, aponta oportunidades de economia
-                  tributária e confere credibilidade à empresa perante o mercado financeiro e
-                  investidores.
+                  tributária e confere credibilidade à empresa perante o mercado e investidores.
                 </p>
               </div>
             </div>
@@ -127,7 +99,7 @@ export default function QuemSomos() {
               <DarkHorseFrame
                 src={IMAGES.quemSomosHistoria}
                 alt="Equipe da C Cont em análise estratégica"
-                offsetColor="bg-[#EAF2F6]"
+                offsetColor="bg-[#EEF2F7]"
                 aspectRatio="aspect-[4/3]"
               />
             </div>
@@ -136,16 +108,16 @@ export default function QuemSomos() {
       </section>
 
       {/* Cards de Valores (6 cards) */}
-      <section className="py-20 lg:py-28 bg-[#F6F5F2]">
+      <section className="py-20 lg:py-28 bg-[#EEF2F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-semibold text-[#154671]">
+            <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
               Princípios Fundamentais
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#0a1628]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#00102A]">
               Nossos valores
             </h2>
-            <p className="text-base text-slate-600 font-light">
+            <p className="text-base text-slate-600 font-normal">
               Pilares que orientam cada entrega técnica, relacionamento com clientes e decisão
               institucional da C Cont.
             </p>
@@ -160,14 +132,14 @@ export default function QuemSomos() {
                   className="bg-white p-8 rounded-[16px] border border-slate-200/60 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#EAF2F6] text-[#154671] flex items-center justify-center mb-5">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-12 h-12 rounded-xl bg-[#EEF2F7] text-[#00102A] flex items-center justify-center mb-5">
+                      <Icon className="w-6 h-6 text-[#0B2347]" />
                     </div>
-                    <h3 className="font-serif font-bold text-xl text-[#0a1628] mb-3">
+                    <h3 className="font-bold text-xl text-[#00102A] mb-3">
                       {val.title}
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-600 leading-relaxed font-light">{val.desc}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed font-normal">{val.desc}</p>
                 </div>
               )
             })}
@@ -175,101 +147,52 @@ export default function QuemSomos() {
         </div>
       </section>
 
-      {/* Bloco de Liderança: Vinicius Caldas */}
+      {/* Bloco de Liderança Executiva */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 lg:p-16 rounded-[24px] bg-[#EAF2F6]/60 border border-sky-100">
+          <div className="p-8 sm:p-12 lg:p-16 rounded-[24px] bg-[#EEF2F7]/70 border border-slate-200">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-4">
                 <div className="relative mx-auto max-w-xs lg:max-w-none">
                   <DarkHorseFrame
                     src={IMAGES.quemSomosVinicius}
-                    alt="Vinicius Caldas - CEO e sócio fundador"
-                    offsetColor="bg-sky-200"
+                    alt="Diretoria Executiva C Cont"
+                    offsetColor="bg-slate-300"
                     aspectRatio="aspect-[4/5]"
                     imageClassName="object-top"
                   />
-                  <div className="absolute -bottom-3 -right-3 z-20 bg-[#0a1628] text-white px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
+                  <div className="absolute -bottom-3 -right-3 z-20 bg-[#00102A] text-white px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
                     Liderança
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-8 space-y-4">
-                <span className="text-xs uppercase tracking-widest font-semibold text-[#154671]">
+                <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
                   Diretoria Executiva
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0a1628]">
-                  Vinicius Caldas
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#00102A]">
+                  Liderança e Visão Estratégica
                 </h3>
-                <p className="text-sm sm:text-base font-semibold text-sky-700">
-                  CEO e sócio fundador da C Cont e do C Consulting Group
+                <p className="text-sm sm:text-base font-semibold text-[#0B2347]">
+                  Diretoria Executiva da C Cont Contabilidade
                 </p>
-                <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed font-light pt-2">
+                <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed font-normal pt-2">
                   <p>
-                    Com formação em{' '}
-                    <strong>Direito pela Universidade Católica de Pernambuco (UNICAP)</strong>,
-                    formação técnica em <strong>Contabilidade</strong> e especialização em{' '}
-                    <strong>
-                      Direito Tributário pelo Instituto Brasileiro de Estudos Tributários (IBET)
-                    </strong>
-                    , Vinicius Caldas reúne uma bagagem interdisciplinar única que combina precisão
-                    contábil e segurança jurídica.
+                    Com sólida formação acadêmica e especialização em{' '}
+                    <strong>Direito Tributário e Prática Contábil Corporativa</strong>, nossa
+                    liderança reúne uma bagagem interdisciplinar única que combina precisão contábil,
+                    segurança jurídica e visão de negócios.
                   </p>
                   <p>
-                    Sua visão executiva orienta a missão da C Cont: descomplicar o cenário
-                    tributário brasileiro e transformar a rotina contábil em um diferencial
-                    competitivo sustentável para médios e grandes grupos empresariais.
+                    Nossa missão executiva é orientar empresas na navegação pelo complexo cenário
+                    tributário brasileiro, transformando a rotina contábil em um diferencial
+                    competitivo sustentável com previsibilidade de caixa, governança e conformidade
+                    integral perante os órgãos reguladores.
                   </p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bloco do Grupo (C Cont, Caldas Advocacia, C Capital) em 3 cards */}
-      <section className="py-20 lg:py-28 bg-[#0a1628] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-semibold text-sky-400">
-              C Consulting Group
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
-              Um grupo, três pilares integrados
-            </h2>
-            <p className="text-base text-slate-300 font-light">
-              Estrutura corporativa completa para respaldar empresas em todas as etapas de
-              maturidade, governança e alocação de capital.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {groupCompanies.map((comp) => {
-              const Icon = comp.icon
-              return (
-                <div
-                  key={comp.name}
-                  className="p-8 rounded-[20px] bg-white/5 border border-white/10 hover:border-sky-400/50 hover:bg-white/[0.07] transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-sky-950/80 border border-sky-800/60 text-sky-400 flex items-center justify-center">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-300 bg-sky-950/70 border border-sky-800/60 px-3 py-1 rounded-full">
-                        {comp.badge}
-                      </span>
-                    </div>
-                    <h3 className="font-serif font-bold text-2xl text-white mb-1">{comp.name}</h3>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-4">
-                      {comp.segment}
-                    </p>
-                  </div>
-                  <p className="text-sm text-slate-300 leading-relaxed font-light">{comp.desc}</p>
-                </div>
-              )
-            })}
           </div>
         </div>
       </section>

@@ -20,7 +20,7 @@ export default function Duvidas() {
     },
     {
       q: 'O que diferencia a C Cont de uma contabilidade tradicional?',
-      a: 'Mais do que emitir guias de tributos e folha, entregamos inteligência estratégica. Aliamos contabilidade consultiva, planejamento tributário preventivo, governança e a sinergia multidisciplinar com a Caldas Advocacia e a C Capital (BTG Pactual).',
+      a: 'Mais do que emitir guias de tributos e folha, entregamos inteligência estratégica. Aliamos contabilidade consultiva, planejamento tributário preventivo, governança societária rigorosa e relatórios gerenciais estruturados para a tomada de decisões da diretoria.',
     },
     {
       q: 'A C Cont atende empresas em todo o Brasil?',

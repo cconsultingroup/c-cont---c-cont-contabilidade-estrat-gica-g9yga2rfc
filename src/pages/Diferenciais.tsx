@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Sparkles, Eye, ShieldCheck, ClipboardList, CalendarCheck, Users } from 'lucide-react'
 import PageBanner from '@/components/PageBanner'
-import NumberStats from '@/components/NumberStats'
 import DarkHorseFrame from '@/components/DarkHorseFrame'
 import { IMAGES } from '@/lib/siteImages'
 
@@ -53,20 +52,17 @@ export default function Diferenciais() {
         breadcrumb="Por que a C Cont"
       />
 
-      {/* Faixa de Números (mesmos 3 cards da home) */}
-      <NumberStats bgColor="bg-[#EAF2F6]" className="bg-white border-b border-slate-100" />
-
       {/* Grid de Diferenciais com Ícones */}
-      <section className="py-20 lg:py-28 bg-[#F6F5F2]">
+      <section className="py-20 lg:py-28 bg-[#EEF2F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-semibold text-[#154671]">
+            <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
               Nossa Forma de Atuar
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#0a1628]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#00102A]">
               Padrão de excelência em cada entrega
             </h2>
-            <p className="text-base text-slate-600 font-light">
+            <p className="text-base text-slate-600 font-normal">
               Combinamos rigor regulatório, processos ágeis e sensibilidade de negócio para
               transformar obrigações em valor contínuo.
             </p>
@@ -81,14 +77,14 @@ export default function Diferenciais() {
                   className="bg-white p-8 rounded-[16px] border border-slate-200/70 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#EAF2F6] text-[#154671] flex items-center justify-center mb-6">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-12 h-12 rounded-xl bg-[#EEF2F7] text-[#00102A] flex items-center justify-center mb-6">
+                      <Icon className="w-6 h-6 text-[#0B2347]" />
                     </div>
-                    <h3 className="font-serif font-bold text-xl text-[#0a1628] mb-3">
+                    <h3 className="font-bold text-xl text-[#00102A] mb-3">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-600 leading-relaxed font-light">{item.desc}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
                 </div>
               )
             })}
@@ -102,13 +98,13 @@ export default function Diferenciais() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Texto */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs uppercase tracking-widest font-semibold text-[#154671]">
+              <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
                 Compromisso com o Cliente
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a1628] leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#00102A] leading-tight">
                 A contabilidade como instrumento de gestão.
               </h2>
-              <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed font-light">
+              <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                 <p>
                   Entregamos acompanhamento próximo, visão estratégica e informações que ajudam sua
                   empresa a crescer com organização, previsibilidade de fluxo e total segurança
@@ -132,7 +128,7 @@ export default function Diferenciais() {
               <DarkHorseFrame
                 src={IMAGES.diferenciaisBlock}
                 alt="Consultores da C Cont em reunião de acompanhamento"
-                offsetColor="bg-[#EAF2F6]"
+                offsetColor="bg-[#EEF2F7]"
                 aspectRatio="aspect-[4/3]"
               />
             </div>
