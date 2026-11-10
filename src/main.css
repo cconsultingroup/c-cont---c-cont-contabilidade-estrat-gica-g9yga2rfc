@@ -318,3 +318,40 @@
     animation: spotlight 2s ease forwards;
   }
 }
+
+@layer base {
+  /* ── Novo padrão minimalista C Cont ─────────────────── */
+
+  /* Scroll suave (respeita reduced motion) */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Seleção de texto na cor da marca */
+  ::selection {
+    background-color: #00102a;
+    color: #ffffff;
+  }
+
+  /* Pesos leves por padrão em títulos do novo padrão */
+  h1,
+  h2 {
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Respeitar prefers-reduced-motion: desliga animações CSS e transições */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

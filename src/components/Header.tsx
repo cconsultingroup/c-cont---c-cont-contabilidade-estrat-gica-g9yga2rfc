@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { Menu, X } from 'lucide-react'
 import { logoAzul, logoBranco } from '@/lib/logos'
+import { EASE } from '@/lib/motion'
 
 const NAV_ITEMS = [
-  { label: 'Início', path: '/' },
   { label: 'Quem Somos', path: '/quem-somos' },
-  { label: 'O que Fazemos', path: '/servicos' },
-  { label: 'Diferenciais', path: '/diferenciais' },
-  { label: 'Dúvidas', path: '/duvidas' },
+  { label: 'Serviços', path: '/servicos' },
+  { label: 'Onde Estamos', path: '/onde-estamos' },
   { label: 'Carreiras', path: '/carreiras' },
-  { label: 'Contato', path: '/contato' },
+  { label: 'Fale Conosco', path: '/fale-conosco' },
 ]
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const reduce = useReducedMotion()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 24)
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
@@ -31,117 +30,150 @@ export default function Header() {
     setMobileOpen(false)
   }, [location.pathname])
 
+  // Trava o scroll do body enquanto o drawer está aberto
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
+
   const isHome = location.pathname === '/'
-  // No topo da home sobre o hero escuro: transparente com textos claros; ao rolar ou em outras páginas: branco com sombra
-  const isTransparent = isHome && !isScrolled
+  const transparent = isHome && !isScrolled && !mobileOpen
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isTransparent
-          ? 'bg-transparent py-4 text-white'
-          : 'bg-white text-[#00102A] shadow-sm py-3 border-b border-slate-100'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
-          <Link
-            to="/"
-            className="flex items-center gap-2 shrink-0 group focus:outline-none"
-            aria-label="C Cont Contabilidade"
-          >
-            <img
-              src={isTransparent ? logoBranco : logoAzul}
-              alt="C Cont Contabilidade"
-              className="h-10 w-auto object-contain transition-opacity duration-200"
-            />
-          </Link>
-
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {NAV_ITEMS.map((item) => {
-              const isActive =
-                item.path === '/'
-                  ? location.pathname === '/'
-                  : location.pathname.startsWith(item.path)
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`px-3.5 py-2 text-sm rounded-full transition-all duration-200 ${
-                    isActive
-                      ? isTransparent
-                        ? 'text-white bg-white/20 font-semibold shadow-xs backdrop-blur-xs'
-                        : 'text-[#00102A] bg-[#EEF2F7] font-semibold shadow-xs'
-                      : isTransparent
-                        ? 'text-slate-200 hover:text-white hover:bg-white/10'
-                        : 'text-slate-600 hover:text-[#00102A] hover:bg-slate-50'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              )
-            })}
-          </nav>
-
-          <div className="hidden sm:flex items-center justify-end shrink-0">
-            <Link
-              to="/contato"
-              className={`text-xs uppercase tracking-widest font-semibold px-4 py-2 rounded-full transition-colors ${
-                isTransparent
-                  ? 'text-white bg-white/15 border border-white/25 hover:bg-white/25 backdrop-blur-xs'
-                  : 'text-white bg-[#00102A] hover:bg-[#0B2347]'
-              }`}
-            >
-              Fale Conosco
+    <>
+      <header
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+          transparent
+            ? 'bg-transparent text-white'
+            : 'bg-white/85 backdrop-blur-md text-[#00102A] border-b border-[#00102A]/8'
+        }`}
+      >
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="flex items-center justify-between h-14">
+            {/* Logo fino e discreto */}
+            <Link to="/" aria-label="C Cont Contabilidade — início" className="shrink-0 py-2">
+              <img
+                src={transparent ? logoBranco : logoAzul}
+                alt="C Cont Contabilidade"
+                className="h-7 w-auto object-contain transition-opacity duration-200"
+              />
             </Link>
+
+            {/* Menu desktop */}
+            <nav className="hidden lg:flex items-center gap-8" aria-label="Navegação principal">
+              {NAV_ITEMS.map((item) => {
+                const isActive = location.pathname.startsWith(item.path)
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="nav-link group relative py-1.5 text-[13px] tracking-wide transition-colors duration-300"
+                  >
+                    <span
+                      className={`transition-colors duration-300 ${
+                        isActive
+                          ? 'opacity-100'
+                          : transparent
+                            ? 'opacity-80 group-hover:opacity-100'
+                            : 'opacity-70 group-hover:opacity-100'
+                      }`}
+                    >
+                      {item.label}
+                    </span>
+                    {/* Sublinhado animado no hover */}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100 ${
+                        isActive ? 'scale-x-100' : ''
+                      } ${transparent ? 'bg-white/90' : 'bg-[#00102A]'}`}
+                    />
+                  </Link>
+                )
+              })}
+            </nav>
+
+            {/* Botão do menu mobile */}
+            <button
+              type="button"
+              onClick={() => setMobileOpen((v) => !v)}
+              className="lg:hidden p-2 -mr-2 transition-colors focus:outline-none"
+              aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
-
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden p-2 rounded-xl transition-colors focus:outline-none ${
-              isTransparent
-                ? 'text-white hover:bg-white/10'
-                : 'text-slate-700 hover:text-[#00102A] hover:bg-slate-100'
-            }`}
-            aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
-      </div>
+      </header>
 
-      {mobileOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 shadow-xl animate-in slide-in-from-top-2 duration-200">
-          <nav className="flex flex-col gap-1.5">
-            {NAV_ITEMS.map((item) => {
-              const isActive =
-                item.path === '/'
-                  ? location.pathname === '/'
-                  : location.pathname.startsWith(item.path)
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'bg-[#EEF2F7] text-[#00102A] font-semibold'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-[#00102A]'
-                  }`}
+      {/* Drawer lateral à direita, com fundo desfocado */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            <motion.div
+              key="drawer-backdrop"
+              className="fixed inset-0 z-40 lg:hidden bg-[#00102A]/30 backdrop-blur-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35, ease: EASE }}
+              onClick={() => setMobileOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.aside
+              key="drawer-panel"
+              className="fixed top-0 right-0 bottom-0 z-50 w-[78%] max-w-xs lg:hidden bg-white/70 backdrop-blur-2xl border-l border-white/40 shadow-2xl"
+              initial={reduce ? { opacity: 0 } : { x: '100%' }}
+              animate={reduce ? { opacity: 1 } : { x: 0 }}
+              exit={reduce ? { opacity: 0 } : { x: '100%' }}
+              transition={{ duration: 0.45, ease: EASE }}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu"
+            >
+              <div className="flex items-center justify-between h-14 px-5">
+                <img src={logoAzul} alt="C Cont Contabilidade" className="h-7 w-auto" />
+                <button
+                  type="button"
+                  onClick={() => setMobileOpen(false)}
+                  className="p-2 -mr-2 text-[#00102A] focus:outline-none"
+                  aria-label="Fechar menu"
                 >
-                  {item.label}
-                </Link>
-              )
-            })}
-          </nav>
-          <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
-            <span className="text-xs uppercase tracking-widest font-semibold text-[#00102A]">
-              C Cont Contabilidade
-            </span>
-            <span className="text-xs text-slate-500">Recife · Brasil</span>
-          </div>
-        </div>
-      )}
-    </header>
+                  <X size={22} />
+                </button>
+              </div>
+
+              <nav className="px-5 pt-6 pb-10 flex flex-col gap-1" aria-label="Menu mobile">
+                {NAV_ITEMS.map((item, i) => (
+                  <motion.div
+                    key={item.path}
+                    initial={reduce ? undefined : { opacity: 0, x: 24 }}
+                    animate={reduce ? undefined : { opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, ease: EASE, delay: 0.08 + i * 0.05 }}
+                  >
+                    <Link
+                      to={item.path}
+                      className={`block py-3 text-lg font-light tracking-wide border-b border-[#00102A]/8 transition-colors duration-300 ${
+                        location.pathname.startsWith(item.path)
+                          ? 'text-[#00102A]'
+                          : 'text-[#00102A]/60 hover:text-[#00102A]'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+
+              <div className="absolute bottom-8 left-5 right-5 text-[11px] uppercase tracking-[0.2em] text-[#00102A]/50">
+                Recife · Pernambuco
+              </div>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   )
 }

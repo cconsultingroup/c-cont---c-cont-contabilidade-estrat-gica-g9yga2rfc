@@ -1,186 +1,115 @@
-import React, { useEffect } from 'react'
-import { Compass, Layers, ShieldCheck, Award, Eye, UserCheck } from 'lucide-react'
-import PageBanner from '@/components/PageBanner'
-import DarkHorseFrame from '@/components/DarkHorseFrame'
-import { IMAGES } from '@/lib/siteImages'
+import { Link } from 'react-router-dom'
+import { motion } from 'motion/react'
+import { ArrowRight } from 'lucide-react'
+import Reveal from '@/components/Reveal'
+import { EASE } from '@/lib/motion'
+
+const BANNER_IMAGE =
+  'https://images.' +
+  'pexels.com/photos/7654438/pexels-photo-7654438.jpeg?auto=compress&cs=tinysrgb&w=1920'
+
+const PILARES = [
+  {
+    title: 'Rigor técnico',
+    desc: 'Precisão contábil e fiscal com padrão auditável, do lançamento ao relatório gerencial.',
+  },
+  {
+    title: 'Proximidade',
+    desc: 'Interlocução direta com a diretoria, na linguagem do negócio — não apenas da contabilidade.',
+  },
+  {
+    title: 'Visão de futuro',
+    desc: 'Tecnologia, automação e leitura antecipada das mudanças tributárias que afetam a operação.',
+  },
+]
 
 export default function QuemSomos() {
-  useEffect(() => {
-    document.title = 'Quem somos | C Cont — Contabilidade Estratégica'
-  }, [])
-
-  const values = [
-    {
-      title: 'Planejamento',
-      desc: 'Antecipação de cenários e desenho cuidadoso de estratégias tributárias e financeiras.',
-      icon: Compass,
-    },
-    {
-      title: 'Integração',
-      desc: 'Operação articulada entre rotinas contábeis, conformidade fiscal e visão de negócios.',
-      icon: Layers,
-    },
-    {
-      title: 'Governança',
-      desc: 'Processos claros de conformidade, rastreabilidade e prestação de contas auditável.',
-      icon: ShieldCheck,
-    },
-    {
-      title: 'Excelência',
-      desc: 'Rigor técnico nas demonstrações contábeis e no cumprimento das obrigações legais.',
-      icon: Award,
-    },
-    {
-      title: 'Transparência',
-      desc: 'Comunicação objetiva, relatórios executivos claros e linguagem acessível à diretoria.',
-      icon: Eye,
-    },
-    {
-      title: 'Personalização',
-      desc: 'Atendimento próximo e soluções desenhadas sob medida para a realidade de cada setor.',
-      icon: UserCheck,
-    },
-  ]
-
   return (
-    <div className="flex flex-col">
-      {/* Banner topo (~45vh) */}
-      <PageBanner
-        title="Quem Somos"
-        subtitle="Uma contabilidade que nasceu para orientar a tomada de decisão com rigor técnico e visão de futuro."
-        imageSrc={IMAGES.quemSomosBanner}
-        breadcrumb="Institucional"
-      />
-
-      {/* História da C Cont (bloco texto + imagem) */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Texto */}
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
-                Nossa Trajetória
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#00102A] leading-tight">
-                Uma contabilidade que orienta a decisão.
-              </h2>
-              <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                <p>
-                  A <strong className="text-slate-900 font-bold">C Cont Contabilidade</strong>{' '}
-                  nasceu com o propósito de transformar o modo como as empresas enxergam a
-                  contabilidade. Mais do que cumprir obrigações fiscais e burocráticas, atuamos como
-                  verdadeiros parceiros estratégicos na condução dos negócios.
-                </p>
-                <p>
-                  Nossa atuação combina a solidez da contabilidade tradicional com recursos
-                  tecnológicos modernos que aumentam a eficiência dos processos e ampliam a
-                  capacidade de análise da nossa equipe.
-                </p>
-                <p>
-                  Acreditamos que a contabilidade bem executada é uma bússola para a diretoria: ela
-                  identifica riscos antes que se tornem passivos, aponta oportunidades de economia
-                  tributária e confere credibilidade à empresa perante o mercado e investidores.
-                </p>
-              </div>
-            </div>
-
-            {/* Imagem */}
-            <div className="lg:col-span-5">
-              <DarkHorseFrame
-                src={IMAGES.quemSomosHistoria}
-                alt="Equipe da C Cont em análise estratégica"
-                offsetColor="bg-[#EEF2F7]"
-                aspectRatio="aspect-[4/3]"
-              />
-            </div>
-          </div>
+    <div>
+      {/* Banner fino */}
+      <section className="relative h-[42vh] min-h-[320px] flex items-end overflow-hidden bg-[#00102A]">
+        <motion.img
+          src={BANNER_IMAGE}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ scale: 1.08 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.4, ease: EASE }}
+        />
+        <div className="absolute inset-0 bg-[#00102A]/70" aria-hidden="true" />
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-10">
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: EASE, delay: 0.15 }}
+            className="text-[11px] uppercase tracking-[0.3em] text-white/60 font-medium"
+          >
+            Quem somos
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: EASE, delay: 0.28 }}
+            className="mt-3 text-[28px] sm:text-[34px] font-light text-white tracking-tight"
+          >
+            Uma contabilidade feita para decidir junto.
+          </motion.h1>
         </div>
       </section>
 
-      {/* Cards de Valores (6 cards) */}
-      <section className="py-20 lg:py-28 bg-[#EEF2F7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
-              Princípios Fundamentais
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#00102A]">Nossos valores</h2>
-            <p className="text-base text-slate-600 font-normal">
-              Pilares que orientam cada entrega técnica, relacionamento com clientes e decisão
-              institucional da C Cont.
+      {/* Manifesto */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <Reveal className="max-w-3xl">
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[#00102A]/50 font-medium">
+              Nosso propósito
             </p>
-          </div>
+            <h2 className="mt-4 text-[26px] sm:text-[32px] font-light text-[#00102A] leading-snug">
+              A C Cont nasceu para ser diferente das contabilidades tradicionais: menos cumprimento
+              de obrigação, mais orientação de decisão.
+            </h2>
+            <p className="mt-8 text-[15px] font-light text-[#00102A]/70 leading-relaxed">
+              Atendemos empresas de médio e grande porte em todo o Brasil, com operação digital e
+              presencial em Recife. Integramos rotina contábil, inteligência fiscal e compliance em
+              um serviço único, conduzido por quem conhece o negócio de perto.
+            </p>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {values.map((val) => {
-              const Icon = val.icon
-              return (
-                <div
-                  key={val.title}
-                  className="bg-white p-8 rounded-[16px] border border-slate-200/60 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#EEF2F7] text-[#00102A] flex items-center justify-center mb-5">
-                      <Icon className="w-6 h-6 text-[#0B2347]" />
-                    </div>
-                    <h3 className="font-bold text-xl text-[#00102A] mb-3">{val.title}</h3>
-                  </div>
-                  <p className="text-sm text-slate-600 leading-relaxed font-normal">{val.desc}</p>
-                </div>
-              )
-            })}
+          {/* Pilares */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+            {PILARES.map((pilar, i) => (
+              <Reveal key={pilar.title} delay={i * 0.08}>
+                <span className="block text-[11px] uppercase tracking-[0.25em] text-[#00102A]/40 font-medium">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-3 text-lg font-normal text-[#00102A] tracking-tight">
+                  {pilar.title}
+                </h3>
+                <p className="mt-3 text-sm font-light text-[#00102A]/60 leading-relaxed">
+                  {pilar.desc}
+                </p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Bloco de Liderança Executiva */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 lg:p-16 rounded-[24px] bg-[#EEF2F7]/70 border border-slate-200">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-4">
-                <div className="relative mx-auto max-w-xs lg:max-w-none">
-                  <DarkHorseFrame
-                    src={IMAGES.quemSomosVinicius}
-                    alt="Diretoria Executiva C Cont"
-                    offsetColor="bg-slate-300"
-                    aspectRatio="aspect-[4/5]"
-                    imageClassName="object-top"
-                  />
-                  <div className="absolute -bottom-3 -right-3 z-20 bg-[#00102A] text-white px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-md">
-                    Liderança
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-8 space-y-4">
-                <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
-                  Liderança Executiva
-                </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#00102A]">
-                  Vinicius Caldas
-                </h3>
-                <p className="text-sm sm:text-base font-semibold text-[#0B2347]">
-                  CEO e sócio fundador — Direito (UNICAP), técnico em Contabilidade, especialização
-                  em Direito Tributário (IBET)
-                </p>
-                <div className="space-y-3 text-sm sm:text-base text-slate-700 leading-relaxed font-normal pt-2">
-                  <p>
-                    À frente da C Cont Contabilidade, reúne uma trajetória marcada pela integração
-                    entre a precisão contábil e a segurança jurídica tributária, atuando diretamente
-                    na orientação consultiva e no planejamento estratégico de empresas de médio e
-                    grande porte.
-                  </p>
-                  <p>
-                    Com visão focada em conformidade, governança corporativa e eficiência fiscal,
-                    conduz a equipe técnica na entrega de soluções personalizadas que transformam
-                    rotinas contábeis em instrumentos claros de gestão e suporte à tomada de decisão
-                    executiva.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* CTA */}
+      <section className="py-20 bg-[#F7F8FA]">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 text-center">
+          <Reveal>
+            <h2 className="text-[24px] sm:text-[28px] font-light text-[#00102A]">
+              Conheça o que fazemos por empresas como a sua.
+            </h2>
+            <Link
+              to="/servicos"
+              className="group mt-8 inline-flex items-center gap-2.5 border border-[#00102A]/30 px-7 py-3 text-[13px] tracking-wide text-[#00102A] hover:bg-[#00102A] hover:text-white transition-colors duration-400"
+            >
+              Nossos serviços
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
         </div>
       </section>
     </div>

@@ -1,235 +1,179 @@
-import React, { useEffect } from 'react'
-import { Check } from 'lucide-react'
-import PageBanner from '@/components/PageBanner'
-import DarkHorseFrame from '@/components/DarkHorseFrame'
-import { IMAGES } from '@/lib/siteImages'
+import { Link } from 'react-router-dom'
+import { motion } from 'motion/react'
+import {
+  ArrowRight,
+  BarChart3,
+  Scale,
+  RefreshCcw,
+  ShoppingBag,
+  Factory,
+  Briefcase,
+  HeartPulse,
+  HardHat,
+  Sprout,
+  Cpu,
+  Building2,
+} from 'lucide-react'
+import Reveal from '@/components/Reveal'
+import { staggerContainer, staggerItem, EASE } from '@/lib/motion'
+
+// Foto Pexels usada no banner da página
+const BANNER_IMAGE =
+  'https://images.' +
+  'pexels.com/photos/8353821/pexels-photo-8353821.jpeg?auto=compress&cs=tinysrgb&w=1920'
+
+const SERVICOS = [
+  {
+    icon: BarChart3,
+    title: 'Contabilidade Estratégica',
+    desc: 'Escrituração precisa, fechamento em data fixa e relatórios que dão à diretoria uma leitura clara do negócio.',
+  },
+  {
+    icon: Scale,
+    title: 'New Tax Plan — Reforma CBS/IBS/IS',
+    desc: 'Diagnóstico de impacto, simulações de cenários e plano de transição para a nova sistemática tributária.',
+  },
+  {
+    icon: RefreshCcw,
+    title: 'Sistema S — Recuperação de Encargos',
+    desc: 'Revisão e recuperação de contribuições a SESC, SENAI, SEBRAE e demais entidades do Sistema S.',
+  },
+]
+
+const SEGMENTOS = [
+  { icon: ShoppingBag, name: 'Comércio' },
+  { icon: Factory, name: 'Indústria' },
+  { icon: Briefcase, name: 'Serviços' },
+  { icon: HeartPulse, name: 'Saúde' },
+  { icon: HardHat, name: 'Construção' },
+  { icon: Sprout, name: 'Agronegócio' },
+  { icon: Cpu, name: 'Tecnologia' },
+  { icon: Building2, name: 'Holdings' },
+]
 
 export default function Servicos() {
-  useEffect(() => {
-    document.title = 'O que fazemos | C Cont — Contabilidade Estratégica'
-  }, [])
-
-  const services = [
-    {
-      number: '01',
-      title: 'Contábil Estratégico',
-      subtitle: 'Área contábil e demonstrações patrimoniais',
-      desc: 'Escrituração contábil completa, emissão de demonstrações financeiras (Balanço Patrimonial, DRE, DFC, DMPL) e acompanhamento patrimonial com máxima consistência e conformidade legal.',
-      topics: [
-        'Escrituração contábil em conformidade com as normas IFRS/CPC',
-        'Fechamentos contábeis mensais com relatórios executivos',
-        'Conciliações patrimoniais e controle rigoroso de ativo imobilizado',
-        'Demonstrações financeiras auditáveis para bancos e investidores',
-      ],
-      image: IMAGES.servicosAlt1,
-      imageLeft: false,
-    },
-    {
-      number: '02',
-      title: 'Fiscal e Tributário',
-      subtitle: 'Conformidade e apuração rigorosa de tributos',
-      desc: 'Execução da escrituração fiscal, apuração precisa de tributos federais, estaduais e municipais, além do cumprimento rigoroso de todas as obrigações acessórias aplicáveis à atividade da empresa.',
-      topics: [
-        'Apuração de Simples Nacional, Lucro Presumido e Lucro Real',
-        'Transmissão de EFD ICMS/IPI, EFD Contribuições, DCTF e obrigações estaduais',
-        'Revisão contínua de parametrizações e enquadramentos fiscais',
-        'Suporte técnico e esclarecimento de dúvidas do time fiscal interno',
-      ],
-      image: IMAGES.servicosAlt2,
-      imageLeft: true,
-    },
-    {
-      number: '03',
-      title: 'New Tax Plan & Reforma do Consumo',
-      subtitle: 'Planejamento tributário estratégico e CBS/IBS/IS',
-      desc: 'Estruturação de cenários com foco em elisão fiscal legítima e preparação técnica para o período de transição da Reforma Tributária do Consumo.',
-      topics: [
-        'Modelagem de impactos da CBS, IBS e Imposto Seletivo no negócio',
-        'Revisão de créditos fiscais sobre insumos e cadeia de fornecimento',
-        'Diagnóstico tributário preventivo para redução legítima da carga',
-        'Adequação de precificação e margens operacionais à nova legislação',
-      ],
-      image: IMAGES.servicosAlt1,
-      imageLeft: false,
-    },
-    {
-      number: '04',
-      title: 'Recuperação Tributária e Sistema S',
-      subtitle: 'Identificação de créditos e revisão de encargos',
-      desc: 'Levantamento administrativo e judicial de oportunidades de recuperação e compensação de tributos pagos a maior nos últimos 5 anos, com total segurança jurídica.',
-      topics: [
-        'Revisão de contribuições ao Sistema S (teto de 20 salários mínimos)',
-        'Exclusão do ICMS e tributos da base de cálculo de PIS/Cofins',
-        'Compensação administrativa via sistema PER/DCOMP',
-        'Pareceres técnicos especializados e fundamentação jurisprudencial sólida',
-      ],
-      image: IMAGES.servicosAlt2,
-      imageLeft: true,
-    },
-    {
-      number: '05',
-      title: 'Departamento Pessoal e Trabalhista',
-      subtitle: 'Gestão de pessoas e segurança previdenciária',
-      desc: 'Administração completa da folha de pagamento, admissões, férias, rescisões, encargos sociais e previdenciários, com envio preciso de eventos ao eSocial.',
-      topics: [
-        'Processamento da folha e envio pontual dos eventos do eSocial',
-        'Cálculo e gestão de encargos sociais (INSS, FGTS, IRRF)',
-        'Acompanhamento de acordos e convenções coletivas de trabalho',
-        'Auditoria preventiva de rotinas para mitigar passivos trabalhistas',
-      ],
-      image: IMAGES.servicosAlt1,
-      imageLeft: false,
-    },
-    {
-      number: '06',
-      title: 'Societário e Estruturação de Empresas',
-      subtitle: 'Constituição, alterações e governança societária',
-      desc: 'Abertura, alteração contratual e regularização de pessoas jurídicas perante órgãos reguladores, juntas comerciais e Receita Federal, com suporte a holdings e reorganizações.',
-      topics: [
-        'Abertura, cisão, fusão, incorporação e alteração de empresas',
-        'Estruturação de Holdings Patrimoniais e Operacionais',
-        'Obtenção e renovação de certidões negativas (CNDs)',
-        'Legalização de filiais, inscrições estaduais e municipais',
-      ],
-      image: IMAGES.servicosAlt2,
-      imageLeft: true,
-    },
-    {
-      number: '07',
-      title: 'BPO Financeiro e Controladoria',
-      subtitle: 'Operação financeira terceirizada com método',
-      desc: 'Gestão terceirizada de contas a pagar, contas a receber, conciliação bancária diária e emissão de relatórios gerenciais para apoio direto à diretoria.',
-      topics: [
-        'Conciliação bancária diária e gestão de fluxo de caixa',
-        'Processamento de pagamentos e agendamentos bancários',
-        'Cobrança ativa e acompanhamento de contas a receber',
-        'Relatórios de fluxo de caixa realizado versus projetado',
-      ],
-      image: IMAGES.servicosAlt1,
-      imageLeft: false,
-    },
-    {
-      number: '08',
-      title: 'Consultoria Empresarial e Indicadores',
-      subtitle: 'Análise de métricas e organização de processos',
-      desc: 'Estruturação de dashboards gerenciais, análise aprofundada de custos operacionais e assessoria técnica contínua para subsidiar o crescimento sustentável da empresa.',
-      topics: [
-        'Definição e acompanhamento de KPIs financeiros e operacionais',
-        'Análise de ponto de equilíbrio e margens de contribuição',
-        'Planejamento orçamentário anual e controle de desvios',
-        'Reuniões periódicas de alinhamento estratégico com os sócios',
-      ],
-      image: IMAGES.servicosAlt2,
-      imageLeft: true,
-    },
-    {
-      number: '09',
-      title: 'Imposto de Renda e Certificação Digital',
-      subtitle: 'Pessoa física executiva e segurança eletrônica',
-      desc: 'Elaboração especializada de declarações de IRPF para sócios, executivos e investidores, além de suporte na emissão e renovação de certificados digitais e-CPF e e-CNPJ.',
-      topics: [
-        'Declaração de ajuste anual de IRPF para investidores e sócios',
-        'Apuração de ganho de capital e renda variável',
-        'Planejamento sucessório na pessoa física integrado à jurídica',
-        'Emissão ágil de certificados digitais A1 e A3',
-      ],
-      image: IMAGES.servicosAlt1,
-      imageLeft: false,
-    },
-  ]
-
   return (
-    <div className="flex flex-col">
-      {/* Banner topo */}
-      <PageBanner
-        title="O que Fazemos"
-        subtitle="Estrutura integrada para empresas que buscam conformidade, eficiência operacional e informações confiáveis para conduzir seus negócios."
-        imageSrc={IMAGES.servicosBanner}
-        breadcrumb="Soluções Estratégicas"
-      />
-
-      {/* Introdução com números */}
-      <section className="py-16 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
-            Visão Integrada
-          </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#00102A]">
-            Soluções completas e desenhadas para a sua realidade
-          </h2>
-          <p className="text-base text-slate-600 leading-relaxed font-normal">
-            Conectamos as áreas contábil, fiscal, tributária, pessoal e societária para que sua
-            empresa tenha total visibilidade da operação, sem ruído, sem retrabalho e com suporte
-            consultivo permanente.
-          </p>
+    <div>
+      {/* Banner fino */}
+      <section className="relative h-[42vh] min-h-[320px] flex items-end overflow-hidden bg-[#00102A]">
+        <motion.img
+          src={BANNER_IMAGE}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ scale: 1.08 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.4, ease: EASE }}
+        />
+        <div className="absolute inset-0 bg-[#00102A]/70" aria-hidden="true" />
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-10">
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: EASE, delay: 0.15 }}
+            className="text-[11px] uppercase tracking-[0.3em] text-white/60 font-medium"
+          >
+            Serviços
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: EASE, delay: 0.28 }}
+            className="mt-3 text-[28px] sm:text-[34px] font-light text-white tracking-tight"
+          >
+            O que sustenta a sua operação.
+          </motion.h1>
         </div>
       </section>
 
-      {/* Serviços em blocos alternados texto/imagem */}
-      <div className="flex flex-col">
-        {services.map((srv, idx) => {
-          const isEven = idx % 2 === 0
-          const bgSection = isEven ? 'bg-[#EEF2F7]' : 'bg-white'
+      {/* Serviços principais */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[#00102A]/50 font-medium">
+              Atuação
+            </p>
+            <h2 className="mt-4 max-w-2xl text-[28px] sm:text-[32px] font-light text-[#00102A] leading-snug">
+              Três frentes, um mesmo padrão de precisão.
+            </h2>
+          </Reveal>
 
-          return (
-            <section
-              key={srv.title}
-              className={`py-20 lg:py-24 ${bgSection} border-b border-slate-200/60`}
-            >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                  {/* Se imageLeft for true no desktop: imagem na col 5, texto na col 7 */}
-                  <div
-                    className={`lg:col-span-5 ${
-                      srv.imageLeft ? 'order-2 lg:order-1' : 'order-2 lg:order-2'
-                    }`}
-                  >
-                    <DarkHorseFrame
-                      src={srv.image}
-                      alt={srv.title}
-                      offsetColor={isEven ? 'bg-slate-300/70' : 'bg-[#EEF2F7]'}
-                      aspectRatio="aspect-[4/3]"
-                    />
-                  </div>
+          <motion.div
+            variants={staggerContainer(0.14)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12"
+          >
+            {SERVICOS.map((s) => (
+              <motion.div key={s.title} variants={staggerItem} className="group">
+                <s.icon className="w-7 h-7 text-[#00102A]" strokeWidth={1.25} />
+                <h3 className="mt-5 text-base sm:text-lg font-normal text-[#00102A] tracking-tight">
+                  {s.title}
+                </h3>
+                <span
+                  aria-hidden="true"
+                  className="mt-3 block h-px w-8 bg-[#00102A]/30 transition-all duration-500 group-hover:w-full group-hover:bg-[#00102A]"
+                />
+                <p className="mt-4 text-sm font-light text-[#00102A]/60 leading-relaxed">
+                  {s.desc}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-                  <div
-                    className={`lg:col-span-7 space-y-5 ${
-                      srv.imageLeft ? 'order-1 lg:order-2' : 'order-1 lg:order-1'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl font-extrabold text-[#0B2347]">{srv.number}</span>
-                      <span className="h-px w-8 bg-slate-300" />
-                      <span className="text-xs uppercase tracking-widest font-bold text-slate-500">
-                        {srv.subtitle}
-                      </span>
-                    </div>
+      {/* Segmentos atendidos */}
+      <section className="py-20 lg:py-24 bg-[#F7F8FA]">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[#00102A]/50 font-medium">
+              Segmentos
+            </p>
+            <h2 className="mt-4 text-[28px] sm:text-[32px] font-light text-[#00102A] leading-snug">
+              Setores que atendemos.
+            </h2>
+          </Reveal>
 
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#00102A]">
-                      {srv.title}
-                    </h3>
-
-                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                      {srv.desc}
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                      {srv.topics.map((tp) => (
-                        <div key={tp} className="flex items-start gap-2.5">
-                          <Check className="w-4 h-4 text-[#0B2347] shrink-0 mt-1" />
-                          <span className="text-xs sm:text-sm text-slate-700 font-normal">
-                            {tp}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+          <motion.ul
+            variants={staggerContainer(0.06)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+          >
+            {SEGMENTOS.map((seg) => (
+              <motion.li key={seg.name} variants={staggerItem}>
+                <div className="group flex flex-col gap-4 border border-[#00102A]/10 bg-white p-7 hover:border-[#00102A]/40 hover:-translate-y-1 transition-all duration-400 cursor-default">
+                  <seg.icon className="w-5 h-5 text-[#00102A]" strokeWidth={1.25} />
+                  <span className="text-sm font-normal text-[#00102A] tracking-wide">
+                    {seg.name}
+                  </span>
                 </div>
-              </div>
-            </section>
-          )
-        })}
-      </div>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 text-center">
+          <Reveal>
+            <h2 className="text-[24px] sm:text-[28px] font-light text-[#00102A]">
+              Vamos conversar sobre a sua operação?
+            </h2>
+            <Link
+              to="/fale-conosco"
+              className="group mt-8 inline-flex items-center gap-2.5 border border-[#00102A]/30 px-7 py-3 text-[13px] tracking-wide text-[#00102A] hover:bg-[#00102A] hover:text-white transition-colors duration-400"
+            >
+              Fale conosco
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
     </div>
   )
 }

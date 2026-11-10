@@ -7,10 +7,9 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import QuemSomos from './pages/QuemSomos'
 import Servicos from './pages/Servicos'
-import Diferenciais from './pages/Diferenciais'
-import Duvidas from './pages/Duvidas'
 import Carreiras from './pages/Carreiras'
-import Contato from './pages/Contato'
+import OndeEstamos from './pages/OndeEstamos'
+import FaleConosco from './pages/FaleConosco'
 import NotFound from './pages/NotFound'
 
 // ONLY IMPORT AND RENDER WORKING PAGES, NEVER ADD PLACEHOLDER COMPONENTS OR PAGES IN THIS FILE
@@ -26,10 +25,9 @@ const App = () => (
           <Route path="/" element={<Home />} />
           <Route path="/quem-somos" element={<QuemSomos />} />
           <Route path="/servicos" element={<Servicos />} />
-          <Route path="/diferenciais" element={<Diferenciais />} />
-          <Route path="/duvidas" element={<Duvidas />} />
+          <Route path="/onde-estamos" element={<OndeEstamos />} />
           <Route path="/carreiras" element={<Carreiras />} />
-          <Route path="/contato" element={<Contato />} />
+          <Route path="/fale-conosco" element={<FaleConosco />} />
         </Route>
         {/* ADD ALL CUSTOM ROUTES MUST BE ADDED HERE */}
         <Route path="*" element={<NotFound />} />

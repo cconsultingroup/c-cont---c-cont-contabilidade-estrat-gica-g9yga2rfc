@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { motion } from 'motion/react'
 import {
   GraduationCap,
   TrendingUp,
@@ -8,15 +8,11 @@ import {
   Award,
   MapPin,
   Briefcase,
-  Clock,
-  Mail,
   ArrowRight,
   Send,
-  Building,
 } from 'lucide-react'
-import PageBanner from '@/components/PageBanner'
-import DarkHorseFrame from '@/components/DarkHorseFrame'
-import { IMAGES } from '@/lib/siteImages'
+import Reveal from '@/components/Reveal'
+import { EASE } from '@/lib/motion'
 
 interface JobPosition {
   id: string
@@ -26,6 +22,10 @@ interface JobPosition {
   contractType: string
   summary: string
 }
+
+const BANNER_IMAGE =
+  'https://images.' +
+  'pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1920'
 
 const BENEFITS = [
   {
@@ -109,202 +109,170 @@ const OPEN_POSITIONS: JobPosition[] = [
 ]
 
 export default function Carreiras() {
-  useEffect(() => {
-    document.title = 'Carreiras | C Cont — Contabilidade Estratégica'
-  }, [])
-
   return (
-    <div className="flex flex-col">
-      {/* 1. Banner topo (~45vh) */}
-      <PageBanner
-        title="Carreiras"
-        subtitle="Construa sua trajetória profissional em um ambiente que une rigor técnico, contabilidade consultiva e desenvolvimento contínuo."
-        imageSrc={IMAGES.carreirasBanner}
-        breadcrumb="Oportunidades"
-      />
+    <div>
+      {/* Banner fino */}
+      <section className="relative h-[42vh] min-h-[320px] flex items-end overflow-hidden bg-[#00102A]">
+        <motion.img
+          src={BANNER_IMAGE}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ scale: 1.08 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.4, ease: EASE }}
+        />
+        <div className="absolute inset-0 bg-[#00102A]/70" aria-hidden="true" />
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-10">
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: EASE, delay: 0.15 }}
+            className="text-[11px] uppercase tracking-[0.3em] text-white/60 font-medium"
+          >
+            Carreiras
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: EASE, delay: 0.28 }}
+            className="mt-3 text-[28px] sm:text-[34px] font-light text-white tracking-tight"
+          >
+            Construa sua trajetória aqui.
+          </motion.h1>
+        </div>
+      </section>
 
-      {/* 2. Introdução curta + Bloco 'Como é trabalhar na C Cont' (Texto + Moldura DarkHorseFrame) */}
+      {/* Introdução */}
       <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Texto */}
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
-                Trabalhe Conosco
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#00102A] leading-tight">
-                Como é trabalhar na C Cont.
-              </h2>
-              <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                <p>
-                  Na <strong className="text-slate-900 font-bold">C Cont Contabilidade</strong>,
-                  acreditamos que a excelência nos serviços prestados aos nossos clientes começa
-                  pela valorização e capacitação das nossas pessoas. Atuamos como uma consultoria
-                  independente que alia precisão técnica e proximidade humana.
-                </p>
-                <p>
-                  Aqui, você encontra uma cultura pautada no rigor técnico, no compromisso ético e
-                  no desenvolvimento profissional acelerado. Mais do que processar dados, nossa
-                  equipe participa ativamente da contabilidade consultiva e da inteligência fiscal
-                  que orientam as grandes decisões corporativas.
-                </p>
-                <p>
-                  Oferecemos um ambiente colaborativo, moderno e acolhedor, onde boas ideias são
-                  ouvidas, a autonomia é incentivada e o aprendizado faz parte do cotidiano de cada
-                  departamento.
-                </p>
-              </div>
-
-              <div className="pt-2 flex flex-wrap gap-6 text-sm text-slate-600">
-                <div className="flex items-center gap-2">
-                  <Building className="w-4 h-4 text-sky-600" />
-                  <span>Sede no Empresarial Alexandre de Castro e Silva — Recife/PE</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-sky-600" />
-                  <span>Cultura de meritocracia e aprendizado contínuo</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Imagem com moldura DarkHorseFrame (offset + cruzes decorativas) */}
-            <div className="lg:col-span-5">
-              <DarkHorseFrame
-                src={IMAGES.carreirasTrabalhar}
-                alt="Profissionais trabalhando em equipe na C Cont"
-                offsetColor="bg-[#EEF2F7]"
-                aspectRatio="aspect-[4/3]"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Grid de cards de Benefícios e Desenvolvimento */}
-      <section className="py-20 lg:py-28 bg-[#EEF2F7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
-              Pilares de Crescimento
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#00102A]">
-              Benefícios e desenvolvimento profissional
-            </h2>
-            <p className="text-base text-slate-600 font-normal">
-              Investimos na sua evolução para que sua carreira alcance o mesmo nível de excelência
-              que entregamos aos nossos parceiros.
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <Reveal className="max-w-3xl">
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[#00102A]/50 font-medium">
+              Trabalhe conosco
             </p>
-          </div>
+            <h2 className="mt-4 text-[26px] sm:text-[32px] font-light text-[#00102A] leading-snug">
+              Como é trabalhar na C Cont.
+            </h2>
+            <p className="mt-8 text-[15px] font-light text-[#00102A]/70 leading-relaxed">
+              Acreditamos que a excelência no serviço começa pela valorização das pessoas. Aqui, a
+              equipe participa da contabilidade consultiva e da inteligência fiscal que orientam as
+              grandes decisões — em um ambiente colaborativo, moderno e acolhedor, onde boas ideias
+              são ouvidas e o aprendizado faz parte do cotidiano.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-6 text-sm font-light text-[#00102A]/60">
+              <span className="inline-flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-[#00102A]" strokeWidth={1.25} />
+                Boa Viagem — Recife/PE
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#00102A]" strokeWidth={1.25} />
+                Meritocracia e aprendizado contínuo
+              </span>
+            </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {BENEFITS.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="bg-white p-8 rounded-[16px] border border-slate-200/70 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#EEF2F7] text-[#00102A] flex items-center justify-center mb-6">
-                      <Icon className="w-6 h-6 text-[#0B2347]" />
-                    </div>
-                    <h3 className="font-bold text-xl text-[#00102A] mb-3">{item.title}</h3>
-                  </div>
-                  <p className="text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
-                </div>
-              )
-            })}
+          {/* Benefícios */}
+          <div className="mt-16">
+            <Reveal>
+              <p className="text-[11px] uppercase tracking-[0.3em] text-[#00102A]/50 font-medium">
+                Pilares de crescimento
+              </p>
+              <h3 className="mt-4 text-[24px] sm:text-[28px] font-light text-[#00102A]">
+                Benefícios e desenvolvimento profissional
+              </h3>
+            </Reveal>
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+              {BENEFITS.map((item, i) => (
+                <Reveal key={item.title} delay={i * 0.05}>
+                  <item.icon className="w-6 h-6 text-[#00102A]" strokeWidth={1.25} />
+                  <h4 className="mt-4 text-base font-normal text-[#00102A] tracking-tight">
+                    {item.title}
+                  </h4>
+                  <p className="mt-2.5 text-sm font-light text-[#00102A]/60 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Seção 'Oportunidades' com cards de vagas abertas */}
-      <section id="vagas" className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16 space-y-3">
-            <span className="text-xs uppercase tracking-widest font-bold text-[#0B2347]">
-              Faça Parte
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#00102A]">
+      {/* Oportunidades abertas */}
+      <section className="py-20 lg:py-24 bg-[#F7F8FA]">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[#00102A]/50 font-medium">
+              Faça parte
+            </p>
+            <h2 className="mt-4 text-[26px] sm:text-[30px] font-light text-[#00102A]">
               Oportunidades abertas
             </h2>
-            <p className="text-base text-slate-600 font-normal">
-              Confira as posições disponíveis em nossa equipe e candidate-se enviando seu currículo
-              diretamente para nossa controladoria.
+            <p className="mt-4 text-sm font-light text-[#00102A]/60 max-w-xl leading-relaxed">
+              Candidate-se enviando seu currículo diretamente para nossa controladoria.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="space-y-6">
-            {OPEN_POSITIONS.map((position) => {
-              const mailSubject = encodeURIComponent(`Candidatura - ${position.title}`)
+          <div className="mt-12 space-y-4">
+            {OPEN_POSITIONS.map((position, i) => {
+              const mailSubject = encodeURIComponent(`Candidatura — ${position.title}`)
               const mailHref = `mailto:controladoria@ccont.cnt.com.br?subject=${mailSubject}`
-
               return (
-                <div
-                  key={position.id}
-                  className="bg-white p-6 sm:p-8 rounded-[16px] border border-slate-200 hover:border-slate-300 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col lg:flex-row lg:items-center justify-between gap-6 group"
-                >
-                  <div className="space-y-3 max-w-3xl">
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                      <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#EEF2F7] text-[#00102A]">
-                        {position.department}
-                      </span>
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700 flex items-center gap-1.5">
-                        <Briefcase className="w-3.5 h-3.5 text-sky-600" />
-                        {position.contractType}
-                      </span>
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700 flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-sky-600" />
-                        {position.regime}
-                      </span>
+                <Reveal key={position.id} delay={i * 0.04}>
+                  <div className="group bg-white border border-[#00102A]/10 p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6 hover:border-[#00102A]/40 hover:-translate-y-0.5 transition-all duration-400">
+                    <div className="space-y-2.5 max-w-3xl">
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.15em] text-[#00102A]/50 font-medium">
+                        <span>{position.department}</span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <Briefcase className="w-3.5 h-3.5" strokeWidth={1.25} />
+                          {position.contractType}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <MapPin className="w-3.5 h-3.5" strokeWidth={1.25} />
+                          {position.regime}
+                        </span>
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-normal text-[#00102A] tracking-tight">
+                        {position.title}
+                      </h3>
+                      <p className="text-sm font-light text-[#00102A]/60 leading-relaxed">
+                        {position.summary}
+                      </p>
                     </div>
-
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#00102A] group-hover:text-[#0B2347] transition-colors">
-                      {position.title}
-                    </h3>
-
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                      {position.summary}
-                    </p>
+                    <div className="shrink-0">
+                      <a
+                        href={mailHref}
+                        className="group/link inline-flex items-center gap-2.5 border border-[#00102A]/30 px-6 py-3 text-[13px] tracking-wide text-[#00102A] hover:bg-[#00102A] hover:text-white transition-colors duration-400"
+                      >
+                        Candidate-se
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+                      </a>
+                    </div>
                   </div>
-
-                  <div className="shrink-0 pt-2 lg:pt-0">
-                    <a
-                      href={mailHref}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white bg-[#00102A] hover:bg-[#0B2347] transition-colors shadow-xs group-hover:shadow"
-                    >
-                      <span>Candidate-se</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
+                </Reveal>
               )
             })}
           </div>
 
-          {/* 5. Faixa / CTA discreto para candidatura espontânea */}
-          <div className="mt-12 p-8 sm:p-10 rounded-[16px] bg-[#EEF2F7] border border-slate-200/80 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-bold text-[#00102A]">
-                Não encontrou sua vaga?
-              </h4>
-              <p className="text-sm text-slate-600 max-w-xl font-normal leading-relaxed">
-                Estamos sempre em busca de talentos para fortalecer nossa equipe técnica e
-                consultiva. Envie seu currículo com sua área de interesse para o nosso banco de
-                talentos.
-              </p>
-            </div>
-
-            <div className="shrink-0">
+          {/* Candidatura espontânea */}
+          <Reveal delay={0.05}>
+            <div className="mt-10 p-8 sm:p-10 bg-white border border-[#00102A]/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div>
+                <h3 className="text-lg font-normal text-[#00102A]">Não encontrou sua vaga?</h3>
+                <p className="mt-2 text-sm font-light text-[#00102A]/60 leading-relaxed max-w-xl">
+                  Estamos sempre em busca de talentos. Envie seu currículo com sua área de interesse
+                  para o nosso banco de talentos.
+                </p>
+              </div>
               <a
                 href="mailto:controladoria@ccont.cnt.com.br?subject=Candidatura%20espont%C3%A2nea"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-[#00102A] bg-white hover:bg-slate-50 border border-slate-300 transition-colors shadow-xs"
+                className="shrink-0 inline-flex items-center gap-2.5 border border-[#00102A]/30 px-6 py-3 text-[13px] tracking-wide text-[#00102A] hover:bg-[#00102A] hover:text-white transition-colors duration-400"
               >
-                <Send className="w-4 h-4 text-sky-600" />
-                <span>Candidatura espontânea</span>
+                <Send className="w-4 h-4" strokeWidth={1.5} />
+                Candidatura espontânea
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </div>
