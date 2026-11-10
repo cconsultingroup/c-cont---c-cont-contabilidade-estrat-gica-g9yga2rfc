@@ -57,7 +57,11 @@ export default function OndeEstamos() {
                   <div>
                     <h3 className="text-base font-normal text-[#00102A]">C Cont Contabilidade</h3>
                     <p className="mt-2 text-sm font-light text-[#00102A]/60 leading-relaxed">
-                      Recife — Pernambuco, Brasil
+                      Empresarial Alexandre de Castro e Silva
+                      <br />
+                      Av. Eng. Domingos Ferreira, 2589, Boa Viagem,
+                      <br />
+                      Recife/PE, CEP 51020-030
                       <br />
                       Atendimento presencial com agendamento.
                     </p>
@@ -90,12 +94,12 @@ export default function OndeEstamos() {
               </div>
             </Reveal>
 
-            {/* Mapa do Google — Recife/PE */}
+            {/* Mapa do Google — Empresarial Alexandre de Castro e Silva, Recife/PE */}
             <Reveal delay={0.1} className="lg:col-span-7">
-              <div className="w-full h-[320px] sm:h-[420px] bg-[#F7F8FA] border border-[#00102A]/10 overflow-hidden">
+              <div className="w-full h-[320px] sm:h-[460px] lg:h-[440px] bg-[#F7F8FA] border border-[#00102A]/10 rounded-2xl overflow-hidden">
                 <iframe
-                  title="Mapa — C Cont Contabilidade, Recife/PE"
-                  src="https://www.google.com/maps?q=Recife,+Pernambuco,+Brasil&output=embed"
+                  title="Mapa — C Cont Contabilidade, Empresarial Alexandre de Castro e Silva, Boa Viagem, Recife/PE"
+                  src="https://www.google.com/maps?q=Empresarial+Alexandre+de+Castro+e+Silva,+Av.+Eng.+Domingos+Ferreira,+2589+-+Boa+Viagem,+Recife+-+PE,+51020-030&output=embed"
                   className="w-full h-full border-0 grayscale-[40%] hover:grayscale-0 transition-all duration-700"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
